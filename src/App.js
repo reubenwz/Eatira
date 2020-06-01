@@ -19,6 +19,8 @@ import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
 import user from "./pages/user";
+import about from "./pages/about";
+import features from "./pages/features";
 
 import axios from "axios";
 
@@ -47,6 +49,8 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={landing} />
+                <Route exact path="/about" component={about} />
+                <Route exact path="/features" component={features} />
                 <Route exact path="/home" component={home} />
                 <AuthRoute exact path="/login" component={login} />
                 <AuthRoute exact path="/signup" component={signup} />
