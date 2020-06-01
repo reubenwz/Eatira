@@ -22,7 +22,7 @@ class Navbar extends Component {
             {authenticated ? (
               <Fragment>
                 <PostPost />
-                <Link to="/">
+                <Link to="/home">
                   <MyButton tip="Home">
                     <HomeIcon />
                   </MyButton>
@@ -32,7 +32,7 @@ class Navbar extends Component {
             ) : (
               <Fragment>
                 <Button color="inherit" component={Link} to="/">
-                  Home
+                  Landing
                 </Button>
                 <Button color="inherit" component={Link} to="/login">
                   Login
