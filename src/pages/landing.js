@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import StarIcon from "@material-ui/icons/StarBorder";
@@ -16,13 +17,17 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
 
+import icon1 from "../images/icon1.jpg";
+import icon2 from "../images/icon2.jpg";
+import icon3 from "../images/icon3.jpg";
 //Icons
-import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
+//import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
+import ForwardIcon from "@material-ui/icons/Forward";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
+      {"© "}
       <MuiLink color="inherit" href="https://material-ui.com/">
         Eatira
       </MuiLink>{" "}
@@ -80,45 +85,29 @@ const useStyles = makeStyles((theme) => ({
 
 const tiers = [
   {
-    title: "Plan a meal",
-    description: ["Find the best restaurants that you love quickly"],
+    title: "Plan A Meal",
+    img: icon1,
+    description: ["Find the best nearby restaurants that you love quickly."],
   },
   {
-    title: "Always free",
+    title: "Always Free",
+    img: icon2,
     description: ["Of course it's completely free for you, and non-hassle."],
   },
   {
-    title: "Sharing online",
+    title: "Sharing Online",
+    img: icon3,
     description: ["See what your friends, family & colleagues' are having!"],
   },
 ];
 const footers = [
   {
     title: "Company",
-    description: ["Team", "History", "Contact us", "Locations"],
+    description: ["About Us"],
   },
   {
-    title: "Features",
-    description: [
-      "Cool stuff",
-      "Random feature",
-      "Team feature",
-      "Developer stuff",
-      "Another one",
-    ],
-  },
-  {
-    title: "Resources",
-    description: [
-      "Resource",
-      "Resource name",
-      "Another resource",
-      "Final resource",
-    ],
-  },
-  {
-    title: "Legal",
-    description: ["Privacy policy", "Terms of use"],
+    title: "Help",
+    description: ["FAQ", "Contact Us"],
   },
 ];
 
@@ -128,79 +117,95 @@ export default function Pricing() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        <Typography
-          component="h1"
-          variant="h2"
-          align="center"
-          color="textPrimary"
-          gutterBottom
+      <div
+        style={{
+          minHeight: 700,
+          padding: "0.2em 0em",
+          backgroundImage: `url(https://i.imgur.com/QhaTVVJ.jpg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "centre",
+          height: "100%",
+          width: "100",
+        }}
+      >
+        {/* Hero unit */}
+        <Container
+          maxWidth="sm"
+          component="main"
+          className={classes.heroContent}
         >
-          eat() at where you love
-        </Typography>
-
-        <Typography
-          variant="h5"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
-          Share your food passion.
-        </Typography>
-
-        <div align="center">
-          <Button
-            color="inherit"
-            component={Link}
-            to="/signup"
-            startIcon={<DoubleArrowIcon />}
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom
           >
-            Get Started
-          </Button>
-        </div>
-      </Container>
-      {/* End hero unit */}
-      <Container maxWidth="md" component="main">
-        <Grid container spacing={5} alignItems="flex-end">
-          {tiers.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={6} md={4}>
-              <Card>
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{ align: "center" }}
-                  subheaderTypographyProps={{ align: "center" }}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <div className={classes.cardPricing}>
-                    <Typography component="h2" variant="h3" color="textPrimary">
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary">
-                      /mo
-                    </Typography>
-                  </div>
-                  <ul>
-                    {tier.description.map((line) => (
+            eat() at where you love
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            component="p"
+          >
+            Share your food passion.
+          </Typography>{" "}
+          <br />
+          <div align="center">
+            <Button
+              color="inherit"
+              component={Link}
+              to="/signup"
+              startIcon={<ForwardIcon />}
+            >
+              Get Started
+            </Button>
+          </div>
+        </Container>
+        {/* End hero unit */}
+        <Container maxWidth="md" component="main">
+          <Grid container spacing={5} alignItems="flex-end">
+            {tiers.map((tier) => (
+              // Enterprise card is full width at sm breakpoint
+              <Grid item key={tier.title} xs={12} sm={6} md={4}>
+                <Card>
+                  <CardHeader
+                    title={tier.title}
+                    subheader={tier.subheader}
+                    titleTypographyProps={{ align: "center" }}
+                    subheaderTypographyProps={{ align: "center" }}
+                    className={classes.cardHeader}
+                  />
+                  <CardContent>
+                    <div className={classes.cardPricing}>
                       <Typography
-                        component="li"
-                        variant="subtitle1"
-                        align="center"
-                        key={line}
+                        component="h2"
+                        variant="h3"
+                        color="textPrimary"
                       >
-                        {line}
+                        {tier.image}
                       </Typography>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+                    </div>
+                    <ul>
+                      {tier.description.map((line) => (
+                        <Typography
+                          component="li"
+                          variant="subtitle1"
+                          align="center"
+                          key={line}
+                        >
+                          {line}
+                        </Typography>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </div>
       {/* Footer */}
       <Container maxWidth="md" component="footer" className={classes.footer}>
         <Grid container spacing={4} justify="space-evenly">
