@@ -2,14 +2,10 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import StarIcon from "@material-ui/icons/StarBorder";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MuiLink from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,6 +16,7 @@ import { Link } from "react-router-dom";
 import icon1 from "../images/icon1.jpg";
 import icon2 from "../images/icon2.jpg";
 import icon3 from "../images/icon3.jpg";
+import AppIcon from "../images/icon96.ico";
 //Icons
 //import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import ForwardIcon from "@material-ui/icons/Forward";
@@ -81,25 +78,33 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(6),
     },
   },
+  img: {
+    width: "200px",
+    height: "200px",
+    objectFit: "cover",
+  },
+  gridContainer: {
+    justifyContent: "center",
+  },
 }));
 
-const tiers = [
-  {
-    title: "Plan A Meal",
-    img: icon1,
-    description: ["Find the best nearby restaurants that you love quickly."],
-  },
-  {
-    title: "Always Free",
-    img: icon2,
-    description: ["Of course it's completely free for you, and non-hassle."],
-  },
-  {
-    title: "Sharing Online",
-    img: icon3,
-    description: ["See what your friends, family & colleagues' are having!"],
-  },
-];
+// const tiers = [
+//   {
+//     title: "Plan A Meal",
+//     img: icon1,
+//     description: ["Find the best nearby restaurants that you love quickly."],
+//   },
+//   {
+//     title: "Always Free",
+//     img: icon2,
+//     description: ["Of course it's completely free for you, and non-hassle."],
+//   },
+//   {
+//     title: "Sharing Online",
+//     img: icon3,
+//     description: ["See what your friends, family & colleagues' are having!"],
+//   },
+// ];
 const footers = [
   {
     title: "Company",
@@ -164,7 +169,7 @@ export default function Pricing() {
           </div>
         </Container>
         {/* End hero unit */}
-        <Container maxWidth="md" component="main">
+        {/* <Container maxWidth="md" component="main">
           <Grid container spacing={5} alignItems="flex-end">
             {tiers.map((tier) => (
               // Enterprise card is full width at sm breakpoint
@@ -204,7 +209,58 @@ export default function Pricing() {
               </Grid>
             ))}
           </Grid>
-        </Container>
+        </Container> */}
+        <Grid container spacing={4} className={classes.gridContainer}>
+          <Grid item>
+            <Card width="25%">
+              <CardHeader
+                title="Plan a meal"
+                titleTypographyProps={{ align: "center" }}
+                subheaderTypographyProps={{ align: "center" }}
+                className={classes.cardHeader}
+              />
+              <CardContent>
+                <div>
+                  <img src={icon1} alt="icon1" className={classes.img} />
+                </div>
+                <div></div>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item>
+            <Card width="25%">
+              <CardHeader
+                title="Always free"
+                titleTypographyProps={{ align: "center" }}
+                subheaderTypographyProps={{ align: "center" }}
+                className={classes.cardHeader}
+              />
+              <CardContent>
+                <div>
+                  <img src={icon2} alt="icon1" className={classes.img} />
+                </div>
+                <div></div>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item>
+            <Card width="25%">
+              <CardHeader
+                title="Plan a meal"
+                titleTypographyProps={{ align: "center" }}
+                subheaderTypographyProps={{ align: "center" }}
+                className={classes.cardHeader}
+              />
+              <CardContent>
+                <div>
+                  <img src={icon3} alt="icon1" className={classes.img} />
+                </div>
+                <div></div>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </div>
       {/* Footer */}
       <Container maxWidth="md" component="footer" className={classes.footer}>
