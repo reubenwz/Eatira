@@ -11,6 +11,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
+
 // Redux stuff
 import { connect } from "react-redux";
 import { postPost, clearErrors } from "../../redux/actions/dataActions";
@@ -55,13 +56,14 @@ class PostPost extends Component {
     this.props.clearErrors();
     this.setState({ open: false, errors: {} });
   };
-  handleChange = (event) => {
+  handleImageChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+    const image = event.target.files[0];
+    const newPost = new FormData();
+    newPost.append("image", image, image.name);
+    this.props.postPost(newPost);
   };
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.postPost({ body: this.state.body });
-  };
+
   render() {
     const { errors } = this.state;
     const {
@@ -86,37 +88,14 @@ class PostPost extends Component {
           >
             <CloseIcon />
           </MyButton>
-          <DialogTitle>Post something!</DialogTitle>
+          <DialogTitle>Show off your meal!</DialogTitle>
           <DialogContent>
             <form onSubmit={this.handleSubmit}>
-              <TextField
-                name="body"
-                type="text"
-                label="Post something for your fellow foodies!"
-                multiline
-                rows="3"
-                placeholder="Post something for your fellow foodies!"
-                error={errors.body ? true : false}
-                helperText={errors.body}
-                className={classes.textField}
-                onChange={this.handleChange}
-                fullWidth
+              <input
+                type="file"
+                id="imageInput"
+                onChange={this.handleImageChange}
               />
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                className={classes.submitButton}
-                disabled={loading}
-              >
-                Submit
-                {loading && (
-                  <CircularProgress
-                    size={30}
-                    className={classes.progressSpinner}
-                  />
-                )}
-              </Button>
             </form>
           </DialogContent>
         </Dialog>
