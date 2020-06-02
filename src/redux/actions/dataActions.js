@@ -57,6 +57,9 @@ export const postPost = (newPost) => (dispatch) => {
       });
       dispatch(clearErrors());
     })
+    .then(() => {
+      dispatch(getPosts());
+    })
     .catch((err) => {
       dispatch({
         type: SET_ERRORS,

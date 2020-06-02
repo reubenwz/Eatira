@@ -14,6 +14,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+
 //Icons
 import ChatIcon from "@material-ui/icons/Chat";
 
@@ -27,11 +28,34 @@ const styles = {
     marginBottom: 20,
   },
   image: {
-    minWidth: 200,
+    width: 100,
+    height: 100,
+  },
+  imageUploaded: {
+    width: 350,
+    height: 350,
+    borderRadius: "2%",
   },
   content: {
     padding: 25,
     objectFit: "cover",
+  },
+  profileImage: {
+    width: 80,
+    height: 80,
+    borderRadius: "50%",
+    margin: "10px",
+    objectFit: "cover",
+  },
+  commentCount: {
+    position: "absolute",
+    left: "46%",
+    bottom: "8%",
+  },
+  likeCount: {
+    position: "absolute",
+    left: "29%",
+    bottom: "8%",
   },
 };
 class Post extends Component {
@@ -63,7 +87,7 @@ class Post extends Component {
         <CardMedia
           image={userImage}
           title="Profile Image"
-          className={classes.image}
+          className={classes.profileImage}
         />
         <CardContent className={classes.content}>
           <Typography
@@ -78,19 +102,24 @@ class Post extends Component {
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>
-          <Typography variant="body1">{body}</Typography>
+
+          {
+            <CardMedia
+              image={body}
+              title="image"
+              className={classes.imageUploaded}
+            />
+          }
           <LikeButton postId={postId} />
-          <span>{likeCount} Likes</span>
-          <MyButton tip="comments">
-            <ChatIcon color="primary" />
-          </MyButton>
-          <span>{commentCount} comments</span>
+          <span className={classes.likeCount}>{likeCount} Likes</span>
+
+          <span className={classes.commentCount}>{commentCount} comments</span>
+          <PostDialog
+            postId={postId}
+            userHandle={userHandle}
+            openDialog={this.props.openDialog}
+          />
         </CardContent>
-        <PostDialog
-          postId={postId}
-          userHandle={userHandle}
-          openDialog={this.props.openDialog}
-        />
       </Card>
     );
   }

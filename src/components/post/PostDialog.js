@@ -13,6 +13,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+
 // Icons
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
@@ -24,13 +25,13 @@ import { getPost, clearErrors } from "../../redux/actions/dataActions";
 const styles = (theme) => ({
   ...theme.spreadThis,
   profileImage: {
-    maxWidth: 200,
-    height: 200,
+    width: 80,
+    height: 80,
     borderRadius: "50%",
     objectFit: "cover",
   },
   dialogContent: {
-    padding: 20,
+    padding: 10,
   },
   closeButton: {
     position: "absolute",
@@ -38,13 +39,18 @@ const styles = (theme) => ({
   },
   expandButton: {
     position: "absolute",
-    left: "90%",
-    bottom: "15%",
+    left: "38%",
+    bottom: "4.8%",
   },
   spinnerDiv: {
     textAlign: "center",
     marginTop: 50,
     marginBottom: 50,
+  },
+  imageUploaded: {
+    width: 400,
+    height: 400,
+    borderRadius: "2%",
   },
 });
 
@@ -100,7 +106,7 @@ class PostDialog extends Component {
       </div>
     ) : (
       <Grid container spacing={16}>
-        <Grid item sm={5}>
+        <Grid item sm={2}>
           <img src={userImage} alt="Profile" className={classes.profileImage} />
         </Grid>
         <Grid item sm={7}>
@@ -117,7 +123,7 @@ class PostDialog extends Component {
             {dayjs(createdAt).format("h:mm a, MMMM DD YYYY")}
           </Typography>
           <hr className={classes.invisibleSeparator} />
-          <Typography variant="body1">{body}</Typography>
+          <img src={body} className={classes.imageUploaded} />
           <LikeButton postId={postId} />
           <span>{likeCount} likes</span>
           <MyButton tip="comments">
@@ -137,7 +143,7 @@ class PostDialog extends Component {
           tip="Expand post"
           tipClassName={classes.expandButton}
         >
-          <UnfoldMore color="primary" />
+          <ChatIcon color="primary" />
         </MyButton>
         <Dialog
           open={this.state.open}

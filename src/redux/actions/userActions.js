@@ -8,6 +8,7 @@ import {
   MARK_NOTIFICATIONS_READ,
 } from "../types";
 import axios from "axios";
+import { getPosts } from "./dataActions";
 
 export const loginUser = (userData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
@@ -69,6 +70,9 @@ export const uploadImage = (formData) => (dispatch) => {
     .post("/user/image", formData)
     .then(() => {
       dispatch(getUserData());
+    })
+    .then(() => {
+      dispatch(getPosts());
     })
     .catch((err) => console.log(err));
 };
