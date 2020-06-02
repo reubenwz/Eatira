@@ -57,13 +57,12 @@ class login extends Component {
     return (
       <div
         style={{
-          minHeight: 700,
-          padding: "0.2em 0em",
+          minHeight: 800,
           backgroundImage: `url(https://i.imgur.com/PKQgE81.jpg?1)`,
+          backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "centre",
+          backgroundPosition: "center",
           height: "100%",
-          width: "100",
         }}
       >
         <Grid container className={classes.form}>
@@ -79,7 +78,7 @@ class login extends Component {
                   id="email"
                   name="email"
                   type="email"
-                  label="Email"
+                  label="Email Address"
                   className={classes.textField}
                   helperText={errors.email}
                   error={errors.email ? true : false}
@@ -133,9 +132,12 @@ class login extends Component {
                   )}
                 </Button>
                 <br />
-                <small>
-                  Don't have an account? Sign up <Link to="/signup">here</Link>
-                </small>
+                <br />
+                <Link href="#" variant="body2">
+                  Forgot password?
+                  <br />
+                </Link>
+                New to Eatira? Sign up <Link to="/signup">here.</Link>
               </form>
             </Grid>
           </Paper>

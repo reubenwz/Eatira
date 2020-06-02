@@ -18,6 +18,12 @@ export default {
     typography: {
       useNextVariants: true,
     },
+    h1: {
+      fontWeight: 800,
+    },
+    body2: {
+      fontWeight: 800,
+    },
     form: {
       textAlign: "center",
     },

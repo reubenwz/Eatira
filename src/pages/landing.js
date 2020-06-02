@@ -1,5 +1,5 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
+import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -13,23 +13,26 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
 
-import icon1 from "../images/icon1.jpg";
-import icon2 from "../images/icon2.jpg";
-import icon3 from "../images/icon3.jpg";
-import AppIcon from "../images/icon96.ico";
+import icon1 from "../images/planAMeal.png";
+import icon2 from "../images/foc.png";
+import icon3 from "../images/shareOnline.png";
+
 //Icons
-//import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import ForwardIcon from "@material-ui/icons/Forward";
 
 function Copyright() {
+  const classes = useStyles();
+
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"© "}
-      <MuiLink color="inherit" href="https://material-ui.com/">
-        Eatira
-      </MuiLink>{" "}
-      {new Date().getFullYear()}
-    </Typography>
+    <div className={classes.root}>
+      <Typography variant="subtitle1" color="textPrimary" align="center">
+        {"© "}
+        <MuiLink color="inherit" component={Link} to="/">
+          Eatira
+        </MuiLink>{" "}
+        {new Date().getFullYear()}
+      </Typography>
+    </div>
   );
 }
 
@@ -62,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
         ? theme.palette.grey[200]
         : theme.palette.grey[700],
   },
-  cardPricing: {
+  cardLanding: {
     display: "flex",
     justifyContent: "center",
     alignItems: "baseline",
@@ -82,58 +85,41 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
     height: "200px",
     objectFit: "cover",
+    justifyContent: "center",
   },
   gridContainer: {
     justifyContent: "center",
   },
 }));
 
-// const tiers = [
-//   {
-//     title: "Plan A Meal",
-//     img: icon1,
-//     description: ["Find the best nearby restaurants that you love quickly."],
-//   },
-//   {
-//     title: "Always Free",
-//     img: icon2,
-//     description: ["Of course it's completely free for you, and non-hassle."],
-//   },
-//   {
-//     title: "Sharing Online",
-//     img: icon3,
-//     description: ["See what your friends, family & colleagues' are having!"],
-//   },
-// ];
 const footers = [
   {
-    title: "Company",
+    title: "COMPANY",
     description: ["About Us"],
   },
   {
-    title: "Help",
+    title: "HELP",
     description: ["FAQ", "Contact Us"],
   },
 ];
 
-export default function Pricing() {
+export default function Landing() {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <CssBaseline />
+      {/* Hero unit */}
       <div
         style={{
-          minHeight: 700,
-          padding: "0.2em 0em",
-          backgroundImage: `url(https://i.imgur.com/QhaTVVJ.jpg)`,
+          backgroundImage: `url(https://i.imgur.com/uaKHhyH.jpg)`,
+          backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "centre",
+          backgroundPosition: "center",
           height: "100%",
-          width: "100",
+          width: "100wh",
         }}
       >
-        {/* Hero unit */}
         <Container
           maxWidth="sm"
           component="main"
@@ -151,7 +137,7 @@ export default function Pricing() {
           <Typography
             variant="h5"
             align="center"
-            color="textSecondary"
+            color="textPrimary"
             component="p"
           >
             Share your food passion.
@@ -159,7 +145,8 @@ export default function Pricing() {
           <br />
           <div align="center">
             <Button
-              color="inherit"
+              variant="contained"
+              color="secondary"
               component={Link}
               to="/signup"
               startIcon={<ForwardIcon />}
@@ -169,123 +156,139 @@ export default function Pricing() {
           </div>
         </Container>
         {/* End hero unit */}
-        {/* <Container maxWidth="md" component="main">
-          <Grid container spacing={5} alignItems="flex-end">
-            {tiers.map((tier) => (
-              // Enterprise card is full width at sm breakpoint
-              <Grid item key={tier.title} xs={12} sm={6} md={4}>
-                <Card>
-                  <CardHeader
-                    title={tier.title}
-                    subheader={tier.subheader}
-                    titleTypographyProps={{ align: "center" }}
-                    subheaderTypographyProps={{ align: "center" }}
-                    className={classes.cardHeader}
-                  />
-                  <CardContent>
-                    <div className={classes.cardPricing}>
-                      <Typography
-                        component="h2"
-                        variant="h3"
+        <Container maxWidth="md" component="main">
+          <Grid
+            container
+            spacing={5}
+            alignItems="flex-end"
+            justify="center"
+            className={classes.gridContainer}
+          >
+            <Grid item xs={12} sm={6} md={4}>
+              <Card width="30%" height="30%">
+                <CardHeader
+                  title="Plan A Meal"
+                  titleTypographyProps={{ align: "center" }}
+                  subheaderTypographyProps={{ align: "center" }}
+                  className={classes.cardHeader}
+                />
+                <CardContent>
+                  <div>
+                    <img
+                      src={icon1}
+                      alt="icon1"
+                      align="center"
+                      className={classes.img}
+                    />
+                  </div>
+                  <div>
+                    <Typography
+                      variant="subtitle2"
+                      gutterBottom
+                      component="p"
+                      align="center"
+                    >
+                      The fastest decision to dine at your favourite restaurant
+                      in one click.
+                    </Typography>
+                  </div>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card width="30%" height="30%">
+                <CardHeader
+                  title="Always Free"
+                  titleTypographyProps={{ align: "center" }}
+                  subheaderTypographyProps={{ align: "center" }}
+                  className={classes.cardHeader}
+                />
+                <CardContent>
+                  <div>
+                    <img src={icon2} alt="icon2" className={classes.img} />
+                  </div>
+                  <div>
+                    <Typography
+                      variant="subtitle2"
+                      gutterBottom
+                      component="p"
+                      align="center"
+                    >
+                      Of course it's completely free for you, and non-hassle.
+                    </Typography>
+                  </div>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={4}>
+              <Card width="30%" height="30%">
+                <CardHeader
+                  title="Sharing Online"
+                  titleTypographyProps={{ align: "center" }}
+                  subheaderTypographyProps={{ align: "center" }}
+                  className={classes.cardHeader}
+                />
+                <CardContent>
+                  <div>
+                    <img src={icon3} alt="icon3" className={classes.img} />
+                  </div>
+                  <div>
+                    <Typography
+                      variant="subtitle2"
+                      gutterBottom
+                      component="p"
+                      align="center"
+                    >
+                      See your friends, family & colleagues' meal posts!
+                    </Typography>
+                  </div>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Container>
+
+        {/* Footer */}
+        <Container maxWidth="md" component="footer" className={classes.footer}>
+          <Grid container spacing={4} justify="space-evenly">
+            <Avatar
+              alt="Eatira"
+              src="https://i.imgur.com/q2hXkFV.jpg"
+              className={classes.large}
+            />
+            {footers.map((footer) => (
+              <Grid item xs={12} xs={12} key={footer.title}>
+                <Typography
+                  variant="h6"
+                  color="textPrimary"
+                  align="center"
+                  gutterBottom
+                >
+                  {footer.title}
+                </Typography>
+                <ul>
+                  {footer.description.map((item) => (
+                    <li key={item} align="center">
+                      <MuiLink
+                        href="/about"
+                        variant="subtitle1"
                         color="textPrimary"
                       >
-                        {tier.image}
-                      </Typography>
-                    </div>
-                    <ul>
-                      {tier.description.map((line) => (
-                        <Typography
-                          component="li"
-                          variant="subtitle1"
-                          align="center"
-                          key={line}
-                        >
-                          {line}
-                        </Typography>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                        {item}
+                      </MuiLink>
+                    </li>
+                  ))}
+                </ul>
               </Grid>
             ))}
           </Grid>
-        </Container> */}
-        <Grid container spacing={4} className={classes.gridContainer}>
-          <Grid item>
-            <Card width="25%">
-              <CardHeader
-                title="Plan a meal"
-                titleTypographyProps={{ align: "center" }}
-                subheaderTypographyProps={{ align: "center" }}
-                className={classes.cardHeader}
-              />
-              <CardContent>
-                <div>
-                  <img src={icon1} alt="icon1" className={classes.img} />
-                </div>
-                <div></div>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card width="25%">
-              <CardHeader
-                title="Always free"
-                titleTypographyProps={{ align: "center" }}
-                subheaderTypographyProps={{ align: "center" }}
-                className={classes.cardHeader}
-              />
-              <CardContent>
-                <div>
-                  <img src={icon2} alt="icon1" className={classes.img} />
-                </div>
-                <div></div>
-              </CardContent>
-            </Card>
-          </Grid>
 
-          <Grid item>
-            <Card width="25%">
-              <CardHeader
-                title="Plan a meal"
-                titleTypographyProps={{ align: "center" }}
-                subheaderTypographyProps={{ align: "center" }}
-                className={classes.cardHeader}
-              />
-              <CardContent>
-                <div>
-                  <img src={icon3} alt="icon1" className={classes.img} />
-                </div>
-                <div></div>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+          <Box mt={5}>
+            <Copyright />
+          </Box>
+        </Container>
       </div>
-      {/* Footer */}
-      <Container maxWidth="md" component="footer" className={classes.footer}>
-        <Grid container spacing={4} justify="space-evenly">
-          {footers.map((footer) => (
-            <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
-                {footer.title}
-              </Typography>
-              <ul>
-                {footer.description.map((item) => (
-                  <li key={item}>
-                    <MuiLink href="#" variant="subtitle1" color="textSecondary">
-                      {item}
-                    </MuiLink>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-          ))}
-        </Grid>
-        <Box mt={5}>
-          <Copyright />
-        </Box>
-      </Container>
       {/* End footer */}
     </React.Fragment>
   );

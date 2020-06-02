@@ -68,14 +68,14 @@ class signup extends Component {
         <Grid item sm>
           <img src={AppIcon} alt="Eatira icon" className={classes.image} />
           <Typography variant="h5" className={classes.pageTitle}>
-            Sign Up
+            Create your account
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
               id="email"
               name="email"
               type="email"
-              label="Email"
+              label="Email Address"
               className={classes.textField}
               helperText={errors.email}
               error={errors.email ? true : false}
@@ -168,9 +168,11 @@ class signup extends Component {
                 <CircularProgress size={30} className={classes.progress} />
               )}
             </Button>
+
             <br />
             <small>
-              Already have an account? Log in <Link to="/login">here</Link>
+              Already have an account? Sign in <Link to="/login">here.</Link>{" "}
+              <br />
             </small>
           </form>
         </Grid>
