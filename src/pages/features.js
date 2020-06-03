@@ -255,31 +255,6 @@ export default function Features() {
               src="https://i.imgur.com/q2hXkFV.jpg"
               className={classes.large}
             />
-            {footers.map((footer) => (
-              <Grid item xs={12} key={footer.title}>
-                <Typography
-                  variant="h6"
-                  color="textPrimary"
-                  align="center"
-                  gutterBottom
-                >
-                  {footer.title}
-                </Typography>
-                <ul>
-                  {footer.description.map((item) => (
-                    <li key={item} align="center">
-                      <MuiLink
-                        href="/about"
-                        variant="subtitle1"
-                        color="textPrimary"
-                      >
-                        {item}
-                      </MuiLink>
-                    </li>
-                  ))}
-                </ul>
-              </Grid>
-            ))}
           </Grid>
           <Box mt={5}>
             <Copyright />
