@@ -28,6 +28,15 @@ export const loginUser = (userData, history) => (dispatch) => {
     });
 };
 
+export const forgotPassword = (userData) => (dispatch) => {
+  axios.post("/forgotpassword", userData).catch((err) => {
+    dispatch({
+      type: SET_ERRORS,
+      payload: err.response.data,
+    });
+  });
+};
+
 export const signupUser = (newUserData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
@@ -51,6 +60,7 @@ export const logoutUser = () => (dispatch) => {
   delete axios.defaults.headers.common["Authorization"];
   dispatch({ type: SET_UNAUTHENTICATED });
 };
+
 export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios

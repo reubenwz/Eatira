@@ -2,31 +2,27 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import AppIcon from "../images/icon96.ico";
-import { Link } from "react-router-dom";
+import MyButton from "../util/MyButton";
 //MUI stuff
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import EmailIcon from "@material-ui/icons/EmailTwoTone";
-import LockIcon from "@material-ui/icons/LockTwoTone";
 //Redux stuff
 import { connect } from "react-redux";
-import { loginUser } from "../redux/actions/userActions";
+import { forgotPassword } from "../redux/actions/userActions";
 
 const styles = (theme) => ({
   ...theme.spreadThis,
 });
 
-class login extends Component {
+class forgotpassword extends Component {
   constructor() {
     super();
     this.state = {
       email: "",
-      password: "",
       errors: {},
     };
   }
@@ -39,9 +35,8 @@ class login extends Component {
     event.preventDefault();
     const userData = {
       email: this.state.email,
-      password: this.state.password,
     };
-    this.props.loginUser(userData, this.props.history);
+    this.props.forgotPassword(userData, this.props.history);
   };
   handleChange = (event) => {
     this.setState({
@@ -49,10 +44,7 @@ class login extends Component {
     });
   };
   render() {
-    const {
-      classes,
-      UI: { loading },
-    } = this.props;
+    const { classes } = this.props;
     const { errors } = this.state;
     return (
       <div
@@ -71,7 +63,7 @@ class login extends Component {
             <Grid item sm>
               <img src={AppIcon} alt="Eatira icon" className={classes.image} />
               <Typography variant="h5" className={classes.pageTitle}>
-                Login
+                Forgot Password
               </Typography>
               <form noValidate onSubmit={this.handleSubmit}>
                 <TextField
@@ -94,50 +86,23 @@ class login extends Component {
                     ),
                   }}
                 />
-                <TextField
-                  id="password"
-                  name="password"
-                  type="password"
-                  label="Password"
-                  className={classes.textField}
-                  helperText={errors.password}
-                  error={errors.password ? true : false}
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  fullWidth
-                  variant="outlined"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LockIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
+
                 {errors.general && (
                   <Typography variant="body2" className={classes.customError}>
                     {errors.general}
                   </Typography>
                 )}
-                <Button
+                <MyButton
                   type="submit"
                   variant="contained"
                   color="secondary"
                   className={classes.button}
-                  disabled={loading}
+                  tip="We'll send you an email to this address to reset your password"
                 >
-                  Login
-                  {loading && (
-                    <CircularProgress size={30} className={classes.progress} />
-                  )}
-                </Button>
+                  Send
+                </MyButton>
                 <br />
                 <br />
-                <Link to="/forgotpassword" variant="body2">
-                  Forgot password?
-                  <br />
-                </Link>
-                New to Eatira? Sign up <Link to="/signup">here.</Link>
               </form>
             </Grid>
           </Paper>
@@ -148,9 +113,9 @@ class login extends Component {
   }
 }
 
-login.propTypes = {
+forgotpassword.propTypes = {
   classes: PropTypes.object.isRequired,
-  loginUser: PropTypes.func.isRequired,
+  forgotPassword: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   UI: PropTypes.object.isRequired,
 };
@@ -161,9 +126,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = {
-  loginUser,
+  forgotPassword,
 };
 export default connect(
   mapStateToProps,
   mapActionsToProps
-)(withStyles(styles)(login));
+)(withStyles(styles)(forgotpassword));

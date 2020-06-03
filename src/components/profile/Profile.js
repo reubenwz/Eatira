@@ -6,6 +6,8 @@ import dayjs from "dayjs";
 import EditDetails from "./EditDetails";
 import MyButton from "../../util/MyButton";
 import ProfileSkeleton from "../../util/ProfileSkeleton";
+import { Redirect } from "react-router";
+
 //MUI stuff
 import Button from "@material-ui/core/Button";
 import MuiLink from "@material-ui/core/Link";
@@ -128,29 +130,30 @@ class Profile extends Component {
           </div>
         </Paper>
       ) : (
-        <Paper className={classes.paper}>
-          <Typography variant="body2" align="center">
-            No profile found, please login again
-          </Typography>
-          <div className={classes.buttons}>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              to="/login"
-            >
-              Login
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              component={Link}
-              to="/signup"
-            >
-              Sign Up
-            </Button>
-          </div>
-        </Paper>
+        <Redirect to="/" />
+        // <Paper className={classes.paper}>
+        //   <Typography variant="body2" align="center">
+        //     No profile found, please login again
+        //   </Typography>
+        //   <div className={classes.buttons}>
+        //     <Button
+        //       variant="contained"
+        //       color="primary"
+        //       component={Link}
+        //       to="/login"
+        //     >
+        //       Login
+        //     </Button>
+        //     <Button
+        //       variant="contained"
+        //       color="secondary"
+        //       component={Link}
+        //       to="/signup"
+        //     >
+        //       Sign Up
+        //     </Button>
+        //   </div>
+        // </Paper>
       )
     ) : (
       <ProfileSkeleton />

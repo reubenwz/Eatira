@@ -140,7 +140,7 @@ class PostDialog extends Component {
       <Fragment>
         <MyButton
           onClick={this.handleOpen}
-          tip="Expand post"
+          tip="Comment"
           tipClassName={classes.expandButton}
         >
           <ChatIcon color="primary" />
