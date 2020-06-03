@@ -58,7 +58,7 @@ class login extends Component {
       <div
         style={{
           minHeight: 800,
-          backgroundImage: `url(https://i.imgur.com/PKQgE81.jpg?1)`,
+          backgroundImage: `url(https://i.imgur.com/uaKHhyH.jpg)`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
