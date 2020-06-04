@@ -22,7 +22,6 @@ import user from "./pages/user";
 import about from "./pages/about";
 import features from "./pages/features";
 import faq from "./pages/faq";
-import contactUs from "./pages/contactUs";
 import forgotpassword from "./pages/forgotpassword";
 import plan from "./pages/plan";
 
@@ -56,7 +55,6 @@ class App extends Component {
                 <Route exact path="/about" component={about} />
                 <Route exact path="/features" component={features} />
                 <Route exact path="/faq" component={faq} />
-                <Route exact path="/contactUs" component={contactUs} />
                 <Route exact path="/home" component={home} />
                 <Route
                   exact
