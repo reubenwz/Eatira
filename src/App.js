@@ -22,9 +22,9 @@ import user from "./pages/user";
 import about from "./pages/about";
 import features from "./pages/features";
 import faq from "./pages/faq";
-import contactus from "./pages/contactus";
 import forgotpassword from "./pages/forgotpassword";
 import plan from "./pages/plan";
+import contactus from "./pages/contactus";
 
 import axios from "axios";
 
@@ -56,13 +56,13 @@ class App extends Component {
                 <Route exact path="/about" component={about} />
                 <Route exact path="/features" component={features} />
                 <Route exact path="/faq" component={faq} />
-                <Route exact path="/contactus" component={contactus} />
                 <Route exact path="/home" component={home} />
                 <Route
                   exact
                   path="/forgotpassword"
                   component={forgotpassword}
                 />
+                <Route exact path="/contactus" component={contactus} />
                 <AuthRoute exact path="/login" component={login} />
                 <AuthRoute exact path="/signup" component={signup} />
                 <Route exact path="/users/:handle" component={user} />
