@@ -36,7 +36,7 @@ const styles = (theme) => ({
 class PostPost extends Component {
   state = {
     open: false,
-    body: "",
+    body: {},
     errors: {},
   };
   componentWillReceiveProps(nextProps) {
@@ -46,7 +46,7 @@ class PostPost extends Component {
       });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      this.setState({ body: "", open: false, errors: {} });
+      this.setState({ body: {}, open: false, errors: {} });
     }
   }
   handleOpen = () => {
@@ -57,11 +57,14 @@ class PostPost extends Component {
     this.setState({ open: false, errors: {} });
   };
   handleImageChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
     const image = event.target.files[0];
     const newPost = new FormData();
     newPost.append("image", image, image.name);
-    this.props.postPost(newPost);
+    this.setState({ body: newPost });
+  };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.postPost(this.state.body);
   };
 
   render() {
@@ -90,12 +93,28 @@ class PostPost extends Component {
           </MyButton>
           <DialogTitle>Show off your meal!</DialogTitle>
           <DialogContent>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit.bind(this)}>
               <input
                 type="file"
                 id="imageInput"
+                name="body"
                 onChange={this.handleImageChange}
               />
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                className={classes.submitButton}
+                disabled={loading}
+              >
+                Submit
+                {loading && (
+                  <CircularProgress
+                    size={30}
+                    className={classes.progressSpinner}
+                  />
+                )}
+              </Button>
             </form>
           </DialogContent>
         </Dialog>

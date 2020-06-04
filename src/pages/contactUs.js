@@ -70,6 +70,7 @@ class contactus extends Component {
       body: "",
       email: "",
       errors: {},
+      isDisabled: false,
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -84,12 +85,16 @@ class contactus extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({ isDisabled: true });
     const userData = {
       name: this.state.name,
       body: this.state.body,
       email: this.state.email,
     };
     this.props.contactUs(userData);
+    alert(
+      "We have received your feedback! We'll get back to you soon if applicable, thanks!"
+    );
   };
 
   render() {
@@ -192,9 +197,9 @@ class contactus extends Component {
                 variant="contained"
                 color="secondary"
                 className={classes.button}
-                tip="We'll respond to you as soon as possible."
+                disabled={this.state.isDisabled}
               >
-                submit
+                Submit
               </Button>
               <br />
               <br />

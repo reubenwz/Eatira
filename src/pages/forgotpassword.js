@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import AppIcon from "../images/icon96.ico";
-import MyButton from "../util/MyButton";
+
 //MUI stuff
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -10,6 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import EmailIcon from "@material-ui/icons/EmailTwoTone";
+import Button from "@material-ui/core/Button";
 //Redux stuff
 import { connect } from "react-redux";
 import { forgotPassword } from "../redux/actions/userActions";
@@ -24,6 +25,7 @@ class forgotpassword extends Component {
     this.state = {
       email: "",
       errors: {},
+      isDisabled: false,
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -33,10 +35,14 @@ class forgotpassword extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({ isDisabled: true });
     const userData = {
       email: this.state.email,
     };
     this.props.forgotPassword(userData, this.props.history);
+    alert(
+      "An email will be sent to the email you provided in a few mins, please be patient!"
+    );
   };
   handleChange = (event) => {
     this.setState({
@@ -65,7 +71,7 @@ class forgotpassword extends Component {
               <Typography variant="h5" className={classes.pageTitle}>
                 Forgot Password
               </Typography>
-              <form noValidate onSubmit={this.handleSubmit}>
+              <form noValidate onSubmit={this.handleSubmit.bind(this)}>
                 <TextField
                   id="email"
                   name="email"
@@ -92,15 +98,16 @@ class forgotpassword extends Component {
                     {errors.general}
                   </Typography>
                 )}
-                <MyButton
+                <Button
                   type="submit"
                   variant="contained"
                   color="secondary"
                   className={classes.button}
                   tip="We'll send you an email to this address to reset your password"
+                  disabled={this.state.isDisabled}
                 >
                   Send
-                </MyButton>
+                </Button>
                 <br />
                 <br />
               </form>
