@@ -11,10 +11,12 @@ import AppBar from "@material-ui/core/AppBar";
 import Avatar from "@material-ui/core/Avatar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
 
 //Icons
 import HomeIcon from "@material-ui/icons/Home";
 import NotesIcon from "@material-ui/icons/Notes";
+import FastfoodIcon from '@material-ui/icons/Fastfood';
 
 class Navbar extends Component {
   render() {
@@ -32,36 +34,41 @@ class Navbar extends Component {
                   </MyButton>
                 </Link>
                 <Link to="/plan">
-                  <MyButton tip="Plan a meal">
-                    <NotesIcon />
+                  <MyButton tip="Plan A Meal">
+                    <FastfoodIcon />
                   </MyButton>
                 </Link>
                 <Notifications />
               </Fragment>
             ) : (
-              <Fragment>
-                <Button color="inherit" component={Link} to="/">
-                  <Avatar alt="Eatira" src="https://i.imgur.com/q2hXkFV.jpg" />
-                </Button>
-                <Button color="inherit" component={Link} to="/about">
-                  About us
-                </Button>
-                <Button color="inherit" component={Link} to="/features">
-                  Features
-                </Button>
-                <Button color="inherit" component={Link} to="/faq">
-                  FAQ
-                </Button>
-                <Button color="inherit" component={Link} to="/contactUs">
-                  Contact Us
-                </Button>
-                <Button color="inherit" component={Link} to="/login">
-                  Login
-                </Button>
-                <Button color="inherit" component={Link} to="/signup">
-                  Sign Up
-                </Button>
-              </Fragment>
+              <Container maxWidth="md" component="main">
+                <Fragment>
+                  <Button color="inherit" component={Link} to="/">
+                    <Avatar
+                      alt="Eatira"
+                      src="https://i.imgur.com/q2hXkFV.jpg"
+                    />
+                  </Button>
+                  <Button color="inherit" component={Link} to="/about">
+                    About us
+                  </Button>
+                  <Button color="inherit" component={Link} to="/features">
+                    Features
+                  </Button>
+                  <Button color="inherit" component={Link} to="/faq">
+                    FAQ
+                  </Button>
+                  <Button color="inherit" component={Link} to="/contactUs">
+                    Contact Us
+                  </Button>
+                  <Button color="inherit" component={Link} to="/login">
+                    Login
+                  </Button>
+                  <Button color="inherit" component={Link} to="/signup">
+                    Sign Up
+                  </Button>
+                </Fragment>
+              </Container>
             )}
           </Toolbar>
         </AppBar>

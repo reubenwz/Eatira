@@ -19,7 +19,7 @@ function Copyright() {
 
   return (
     <div className={classes.root}>
-      <Typography variant="subtitle1" color="textSecondary" align="center">
+      <Typography variant="subtitle1" color="textPrimary" align="center">
         {"© "}
         <MuiLink color="inherit" component={Link} to="/">
           Eatira
@@ -107,8 +107,9 @@ export default function FAQ() {
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Grid item xs={12}>
           <Typography variant="h4" align="center" gutterBottom>
-            Eatira's FAQ <br />
-            Frequently Asked Questions
+            <strong>Eatira's FAQ </strong>
+            <br />
+            <strong>Frequently Asked Questions</strong>
           </Typography>
         </Grid>
         <ExpansionPanel>

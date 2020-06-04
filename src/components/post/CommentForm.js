@@ -46,7 +46,7 @@ class CommentForm extends Component {
           <TextField
             name="body"
             type="text"
-            label="Comment on post"
+            label="Write a comment..."
             error={errors.comment ? true : false}
             helperText={errors.comment}
             value={this.state.body}

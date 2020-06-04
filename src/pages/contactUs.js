@@ -48,6 +48,7 @@ class contactus extends Component {
     this.props.contactUs(userData);
   };
 
+<<<<<<< HEAD
   render() {
     const { classes } = this.props;
     const { errors } = this.state;
@@ -131,6 +132,20 @@ class contactus extends Component {
                     ),
                   }}
                 />
+=======
+  return (
+    <div className={classes.root}>
+      <Typography variant="subtitle1" color="textPrimary" align="center">
+        {"© "}
+        <MuiLink color="inherit" component={Link} to="/">
+          Eatira
+        </MuiLink>{" "}
+        {new Date().getFullYear()}
+      </Typography>
+    </div>
+  );
+}
+>>>>>>> 435fed512e0edcac96366d9f839459a94b842961
 
                 {errors.general && (
                   <Typography variant="body2" className={classes.customError}>
@@ -165,10 +180,79 @@ contactus.propTypes = {
   UI: PropTypes.object.isRequired,
 };
 
+<<<<<<< HEAD
 const mapStateToProps = (state) => ({
   user: state.user,
   UI: state.UI,
 });
+=======
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      {/* Hero unit */}
+      <Container maxWidth="sm" component="main" className={classes.heroContent}>
+        <Grid item xs={12}>
+          <Typography variant="h4" align="center" gutterBottom>
+            <strong>Enjoy this Eatira App ?</strong> <br />
+            <strong>We'd like to hear your opinion about it !</strong>
+          </Typography>
+        </Grid>
+        <div>
+          <TextField
+            id="standard-full-width"
+            label="Name"
+            style={{ margin: 8 }}
+            placeholder="Name"
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="filled"
+            color="secondary"
+          />
+          <TextField
+            id="standard-full-width"
+            label="Opinion"
+            style={{ margin: 8 }}
+            placeholder="Write Something..."
+            //helperText="Write Something..."
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="filled"
+            color="secondary"
+          />
+          <TextField
+            id="standard-full-width"
+            label="Email Address"
+            style={{ margin: 8 }}
+            placeholder="email@gmail.com"
+            //helperText="email@gmail.com"
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            variant="filled"
+            color="secondary"
+          />
+          <div align="center">
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/signup"
+            >
+              Submit
+            </Button>
+          </div>
+        </div>
+      </Container>
+      {/* End hero unit */}
+>>>>>>> 435fed512e0edcac96366d9f839459a94b842961
 
 const mapActionsToProps = {
   contactUs,

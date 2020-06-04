@@ -22,7 +22,7 @@ function Copyright() {
 
   return (
     <div className={classes.root}>
-      <Typography variant="subtitle1" color="textSecondary" align="center">
+      <Typography variant="subtitle1" color="textPrimary" align="center">
         {"© "}
         <MuiLink color="inherit" component={Link} to="/">
           Eatira
@@ -58,9 +58,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cardHeader: {
     backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[200]
-        : theme.palette.grey[700],
+      theme.palette.type === "dark"
+        ? theme.palette.grey[100]
+        : theme.palette.grey[300],
   },
   cardLanding: {
     display: "flex",
@@ -121,9 +121,10 @@ export default function Features() {
         {/* End hero unit */}
         <Container maxWidth="md" component="main">
           <br />
+          <br />
           <Grid item xs={12}>
             <Typography variant="h3" align="center" gutterBottom>
-              Plan A Meal
+              <strong>Plan A Meal</strong>
             </Typography>
           </Grid>
           <Grid

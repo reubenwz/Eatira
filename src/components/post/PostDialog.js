@@ -18,6 +18,8 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
 import ChatIcon from "@material-ui/icons/Chat";
+import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
+
 // Redux stuff
 import { connect } from "react-redux";
 import { getPost, clearErrors } from "../../redux/actions/dataActions";
@@ -112,7 +114,7 @@ class PostDialog extends Component {
         <Grid item sm={7}>
           <Typography
             component={Link}
-            color="primary"
+            color="secondary"
             variant="h5"
             to={`/users/${userHandle}`}
           >
@@ -127,7 +129,7 @@ class PostDialog extends Component {
           <LikeButton postId={postId} />
           <span>{likeCount} likes</span>
           <MyButton tip="comments">
-            <ChatIcon color="primary" />
+            <ChatOutlinedIcon color="primary" />
           </MyButton>
           <span>{commentCount} comments</span>
         </Grid>
@@ -143,7 +145,7 @@ class PostDialog extends Component {
           tip="Comment"
           tipClassName={classes.expandButton}
         >
-          <ChatIcon color="primary" />
+          <ChatOutlinedIcon color="primary" />
         </MyButton>
         <Dialog
           open={this.state.open}
