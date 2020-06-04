@@ -137,7 +137,7 @@ class contactus extends Component {
                     {errors.general}
                   </Typography>
                 )}
-                <MyButton
+                <button
                   type="submit"
                   variant="contained"
                   color="secondary"
@@ -145,7 +145,7 @@ class contactus extends Component {
                   tip="We'll respond to you as soon as possible."
                 >
                   Send
-                </MyButton>
+                </button>
                 <br />
                 <br />
               </form>

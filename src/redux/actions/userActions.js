@@ -38,12 +38,17 @@ export const forgotPassword = (userData) => (dispatch) => {
 };
 
 export const contactUs = (userData) => (dispatch) => {
-  axios.post("/contactus", userData).catch((err) => {
-    dispatch({
-      type: SET_ERRORS,
-      payload: err.response.data,
+  axios
+    .post("/contactus", userData)
+    .then((res) => {
+      dispatch({ type: CLEAR_ERRORS });
+    })
+    .catch((err) => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data,
+      });
     });
-  });
 };
 
 export const signupUser = (newUserData, history) => (dispatch) => {
