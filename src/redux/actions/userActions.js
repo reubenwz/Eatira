@@ -37,6 +37,15 @@ export const forgotPassword = (userData) => (dispatch) => {
   });
 };
 
+export const contactUs = (userData) => (dispatch) => {
+  axios.post("/contactus", userData).catch((err) => {
+    dispatch({
+      type: SET_ERRORS,
+      payload: err.response.data,
+    });
+  });
+};
+
 export const signupUser = (newUserData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
