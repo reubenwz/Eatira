@@ -12,7 +12,9 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import EmailIcon from "@material-ui/icons/EmailTwoTone";
 import LockIcon from "@material-ui/icons/LockTwoTone";
-import PersonIcon from "@material-ui/icons/Person";
+import PersonTwoToneIcon from "@material-ui/icons/PersonTwoTone";
+import AlternateEmailTwoToneIcon from "@material-ui/icons/AlternateEmailTwoTone";
+
 //Redux stuff
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
@@ -86,7 +88,7 @@ class signup extends Component {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <EmailIcon />
+                    <AlternateEmailTwoToneIcon />
                   </InputAdornment>
                 ),
               }}
@@ -146,7 +148,7 @@ class signup extends Component {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <PersonIcon />
+                    <PersonTwoToneIcon />
                   </InputAdornment>
                 ),
               }}

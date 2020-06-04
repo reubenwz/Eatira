@@ -11,8 +11,9 @@ import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import EmailIcon from "@material-ui/icons/EmailTwoTone";
 import LockIcon from "@material-ui/icons/LockTwoTone";
+import AlternateEmailTwoToneIcon from "@material-ui/icons/AlternateEmailTwoTone";
+
 //Redux stuff
 import { connect } from "react-redux";
 import { loginUser } from "../redux/actions/userActions";
@@ -89,7 +90,7 @@ class login extends Component {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <EmailIcon />
+                        <AlternateEmailTwoToneIcon />
                       </InputAdornment>
                     ),
                   }}
