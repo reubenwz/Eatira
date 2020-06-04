@@ -19,7 +19,7 @@ function Copyright() {
 
   return (
     <div className={classes.root}>
-      <Typography variant="subtitle1" color="textSecondary" align="center">
+      <Typography variant="subtitle1" color="textPrimary" align="center">
         {"© "}
         <MuiLink color="inherit" component={Link} to="/">
           Eatira

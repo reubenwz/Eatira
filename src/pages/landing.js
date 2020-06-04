@@ -61,9 +61,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cardHeader: {
     backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[200]
-        : theme.palette.grey[700],
+      theme.palette.type === "dark"
+        ? theme.palette.grey[100]
+        : theme.palette.grey[300],
   },
   cardLanding: {
     display: "flex",
@@ -121,7 +121,7 @@ export default function Landing() {
         }}
       >
         <Container
-          maxWidth="sm"
+          maxWidth="md"
           component="main"
           className={classes.heroContent}
         >
@@ -132,7 +132,7 @@ export default function Landing() {
             color="textPrimary"
             gutterBottom
           >
-            eat() at where you love
+            <strong>eat() at where you love</strong>
           </Typography>
           <Typography
             variant="h5"

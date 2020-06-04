@@ -17,7 +17,7 @@ function Copyright() {
 
   return (
     <div className={classes.root}>
-      <Typography variant="subtitle1" color="textSecondary" align="center">
+      <Typography variant="subtitle1" color="textPrimary" align="center">
         {"© "}
         <MuiLink color="inherit" component={Link} to="/">
           Eatira
@@ -105,8 +105,8 @@ export default function ContactUs() {
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Grid item xs={12}>
           <Typography variant="h4" align="center" gutterBottom>
-            Enjoy this Eatira App ? <br />
-            We'd like to hear your opinion about it !
+            <strong>Enjoy this Eatira App ?</strong> <br />
+            <strong>We'd like to hear your opinion about it !</strong>
           </Typography>
         </Grid>
         <div>
