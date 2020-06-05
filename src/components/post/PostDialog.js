@@ -18,7 +18,7 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
 import ChatIcon from "@material-ui/icons/Chat";
-import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
+import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
 
 // Redux stuff
 import { connect } from "react-redux";
@@ -92,6 +92,7 @@ class PostDialog extends Component {
       post: {
         postId,
         body,
+        image,
         createdAt,
         likeCount,
         commentCount,
@@ -125,7 +126,7 @@ class PostDialog extends Component {
             {dayjs(createdAt).format("h:mm a, MMMM DD YYYY")}
           </Typography>
           <hr className={classes.invisibleSeparator} />
-          <img src={body} className={classes.imageUploaded} />
+          <img src={image} className={classes.imageUploaded} />
           <LikeButton postId={postId} />
           <span>{likeCount} likes</span>
           <MyButton tip="comments">
