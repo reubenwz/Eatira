@@ -92,7 +92,6 @@ class PostDialog extends Component {
       post: {
         postId,
         body,
-        image,
         createdAt,
         likeCount,
         commentCount,
@@ -126,7 +125,7 @@ class PostDialog extends Component {
             {dayjs(createdAt).format("h:mm a, MMMM DD YYYY")}
           </Typography>
           <hr className={classes.invisibleSeparator} />
-          <img src={image} className={classes.imageUploaded} />
+          <img src={body} className={classes.imageUploaded} />
           <LikeButton postId={postId} />
           <span>{likeCount} likes</span>
           <MyButton tip="comments">

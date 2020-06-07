@@ -36,7 +36,7 @@ const styles = (theme) => ({
 class PostPost extends Component {
   state = {
     open: false,
-    image: {},
+    body: {},
     errors: {},
   };
   componentWillReceiveProps(nextProps) {
@@ -46,7 +46,7 @@ class PostPost extends Component {
       });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      this.setState({ image: {}, open: false, errors: {} });
+      this.setState({ body: {}, open: false, errors: {} });
     }
   }
   handleOpen = () => {
@@ -60,11 +60,11 @@ class PostPost extends Component {
     const image = event.target.files[0];
     const newPost = new FormData();
     newPost.append("image", image, image.name);
-    this.setState({ image: newPost });
+    this.setState({ body: newPost });
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.postPost(this.state.image);
+    this.props.postPost(this.state.body);
   };
 
   render() {
@@ -97,7 +97,7 @@ class PostPost extends Component {
               <input
                 type="file"
                 id="imageInput"
-                name="image"
+                name="body"
                 onChange={this.handleImageChange}
               />
               <Button

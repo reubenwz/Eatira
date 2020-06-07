@@ -15,8 +15,7 @@ import Container from "@material-ui/core/Container";
 
 //Icons
 import HomeIcon from "@material-ui/icons/Home";
-import NotesIcon from "@material-ui/icons/Notes";
-import FastfoodIcon from '@material-ui/icons/Fastfood';
+import FastfoodIcon from "@material-ui/icons/Fastfood";
 
 class Navbar extends Component {
   render() {
