@@ -5,7 +5,6 @@ import MyButton from "../../util/MyButton";
 import LikeButton from "./LikeButton";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
-import PostTextForm from "./PostTextForm";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 // MUI Stuff
@@ -126,7 +125,7 @@ class PostDialog extends Component {
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <img src={body} className={classes.imageUploaded} />
-          <Typography variant="body1">Text: {text}</Typography>
+          <Typography variant="body1">{text}</Typography>
           <LikeButton postId={postId} />
           <span>{likeCount} likes</span>
           <MyButton tip="comments">
@@ -135,7 +134,6 @@ class PostDialog extends Component {
           <span>{commentCount} comments</span>
         </Grid>
         <hr className={classes.visibleSeparator} />
-        <PostTextForm postId={postId} />
         <CommentForm postId={postId} />
         <Comments comments={comments} />
       </Grid>

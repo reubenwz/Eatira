@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import DeletePost from "./DeletePost";
 import PostDialog from "./PostDialog";
 import LikeButton from "./LikeButton";
+import PostText from "./PostTextForm";
 
 //MUI stuff
 import Card from "@material-ui/core/Card";
@@ -79,6 +80,11 @@ class Post extends Component {
       authenticated && userHandle === handle ? (
         <DeletePost postId={postId} />
       ) : null;
+
+    const postTextButton =
+      authenticated && userHandle === handle ? (
+        <PostText postId={postId} />
+      ) : null;
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -96,6 +102,7 @@ class Post extends Component {
             {userHandle}
           </Typography>
           {deleteButton}
+
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>
@@ -107,7 +114,8 @@ class Post extends Component {
               className={classes.imageUploaded}
             />
           }
-          <Typography variant="body1">Text: {text}</Typography>
+          <Typography variant="body1">{text}</Typography>
+          {postTextButton}
           <LikeButton postId={postId} />
           <span className={classes.likeCount}>{likeCount} Likes</span>
 

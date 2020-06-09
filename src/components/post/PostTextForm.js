@@ -1,24 +1,46 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
+import MyButton from "../../util/MyButton";
 // MUI Stuff
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogActions from "@material-ui/core/DialogActions";
+import AddIcon from "@material-ui/icons/Add";
+import CloseIcon from "@material-ui/icons/Close";
 // Redux stuff
 import { connect } from "react-redux";
 import { postText } from "../../redux/actions/dataActions";
 
 const styles = (theme) => ({
   ...theme.spreadThis,
+  postTextButton: {
+    position: "absolute",
+    left: "90%",
+    bottom: "5%",
+  },
+  closeButton: {
+    position: "absolute",
+    left: "80%",
+    top: "5%",
+  },
 });
 
 class PostTextForm extends Component {
   state = {
     text: "",
     errors: {},
+    open: false,
   };
-
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
+  handleClose = () => {
+    this.setState({ open: false });
+  };
   componentWillReceiveProps(nextProps) {
     if (nextProps.UI.errors) {
       this.setState({ errors: nextProps.UI.errors });
@@ -34,6 +56,7 @@ class PostTextForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.postText(this.props.postId, { text: this.state.text });
+    this.setState({ open: false });
   };
 
   render() {
@@ -41,30 +64,54 @@ class PostTextForm extends Component {
     const errors = this.state.errors;
 
     const postTextFormMarkup = authenticated ? (
-      <Grid item sm={12} style={{ textAlign: "center" }}>
-        <form onSubmit={this.handleSubmit}>
-          <TextField
-            name="text"
-            type="text"
-            label="Write a caption..."
-            error={errors.comment ? true : false}
-            helperText={errors.comment}
-            value={this.state.text}
-            onChange={this.handleChange}
-            fullWidth
-            className={classes.textField}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Submit
-          </Button>
-        </form>
-        <hr className={classes.visibleSeparator} />
-      </Grid>
+      <Fragment>
+        <MyButton
+          tip="Add / Edit Caption"
+          onClick={this.handleOpen}
+          btnClassName={classes.postTextButton}
+        >
+          <AddIcon color="primary" />
+        </MyButton>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          //   fullWidth
+          //   maxWidth="sm"
+        >
+          <DialogTitle>Caption</DialogTitle>
+          <DialogActions>
+            <MyButton
+              tip="Close"
+              onClick={this.handleClose}
+              tipClassName={classes.closeButton}
+            >
+              <CloseIcon />
+            </MyButton>
+            <form onSubmit={this.handleSubmit}>
+              <TextField
+                name="text"
+                type="text"
+                label="Write a caption..."
+                multiline="3"
+                error={errors.comment ? true : false}
+                helperText={errors.comment}
+                value={this.state.text}
+                onChange={this.handleChange}
+                fullWidth
+                className={classes.textField}
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                Submit
+              </Button>
+            </form>
+          </DialogActions>
+        </Dialog>
+      </Fragment>
     ) : null;
     return postTextFormMarkup;
   }

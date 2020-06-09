@@ -98,19 +98,6 @@ class PostPost extends Component {
           <DialogTitle>Show off your meal!</DialogTitle>
           <DialogContent>
             <form onSubmit={this.handleSubmit.bind(this)}>
-              <TextField
-                name="text"
-                type="text"
-                label="SCREAM!!"
-                multiline
-                rows="3"
-                placeholder="Scream at your fellow apes"
-                error={errors.body ? true : false}
-                helperText={errors.body}
-                className={classes.textField}
-                onChange={this.handleChange}
-                fullWidth
-              />
               <input
                 type="file"
                 id="imageInput"
