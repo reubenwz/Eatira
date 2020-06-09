@@ -12,10 +12,10 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
 
-import icon1 from "../images/location.png";
-import icon2 from "../images/datentime.png";
-import icon3 from "../images/friends.png";
-import icon4 from "../images/deals.png";
+import icon1 from "../images/select.png";
+import icon2 from "../images/review.png";
+import icon3 from "../images/checkout.png";
+import icon4 from "../images/complete.png";
 
 function Copyright() {
   const classes = useStyles();
@@ -124,7 +124,7 @@ export default function Features() {
           <br />
           <Grid item xs={12}>
             <Typography variant="h3" align="center" gutterBottom>
-              <strong>Plan A Meal</strong>
+              <strong>Dessert Cart</strong>
             </Typography>
           </Grid>
           <Grid
@@ -137,7 +137,7 @@ export default function Features() {
             <Grid item xs={6} sm={3} md={3}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="Location"
+                  title="Select Items"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
@@ -158,7 +158,7 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                      Auto-generated location through Google Map API.
+                      Choose the dessert that you would like to order.
                     </Typography>
                   </div>
                 </CardContent>
@@ -167,7 +167,7 @@ export default function Features() {
             <Grid item xs={6} sm={3} md={3}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="Date & Time"
+                  title="Review Items"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
@@ -183,7 +183,7 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                      Schedule a date and time to meet for a meal.
+                      Double check the items you have ordered.
                     </Typography>
                   </div>
                 </CardContent>
@@ -193,7 +193,7 @@ export default function Features() {
             <Grid item xs={6} sm={3} md={3}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="Friends"
+                  title="Checkout"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
@@ -209,7 +209,7 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                      Add your friends into your meal schedule.
+                    Input your address and payment method.
                     </Typography>
                   </div>
                 </CardContent>
@@ -218,7 +218,7 @@ export default function Features() {
             <Grid item xs={6} sm={3} md={3}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="Deals"
+                  title="Confirm Order"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
@@ -239,7 +239,7 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                      Earn discounts as you eat, earn points as you go!
+                    You should receive an e-mail confirming your order within a couple of hours. 
                     </Typography>
                   </div>
                 </CardContent>

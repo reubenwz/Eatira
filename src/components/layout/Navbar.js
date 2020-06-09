@@ -52,7 +52,7 @@ class Navbar extends Component {
                     About us
                   </Button>
                   <Button color="inherit" component={Link} to="/features">
-                    Features
+                    Dessert Cart
                   </Button>
                   <Button color="inherit" component={Link} to="/faq">
                     FAQ

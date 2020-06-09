@@ -13,9 +13,9 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
 
-import icon1 from "../images/planAMeal.png";
-import icon2 from "../images/foc.png";
-import icon3 from "../images/shareOnline.png";
+import icon1 from "../images/foodcart.png";
+import icon2 from "../images/epayment.png";
+import icon3 from "../images/share.png";
 
 //Icons
 import ForwardIcon from "@material-ui/icons/Forward";
@@ -132,7 +132,7 @@ export default function Landing() {
             color="textPrimary"
             gutterBottom
           >
-            <strong>eat() at where you love</strong>
+            <strong>eat() what you love</strong>
           </Typography>
           <Typography
             variant="h5"
@@ -167,7 +167,7 @@ export default function Landing() {
             <Grid item xs={12} sm={6} md={4}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="Plan A Meal"
+                  title="E-Payment"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
@@ -175,8 +175,8 @@ export default function Landing() {
                 <CardContent>
                   <div>
                     <img
-                      src={icon1}
-                      alt="icon1"
+                      src={icon2}
+                      alt="icon2"
                       align="center"
                       className={classes.img}
                     />
@@ -188,8 +188,8 @@ export default function Landing() {
                       component="p"
                       align="center"
                     >
-                      The fastest decision to dine at your favourite restaurant
-                      in one click.
+                      The easiest and fastest transaction in
+                      one click.
                     </Typography>
                   </div>
                 </CardContent>
@@ -198,14 +198,14 @@ export default function Landing() {
             <Grid item xs={12} sm={6} md={4}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="Always Free"
+                  title="Dessert Cart"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
                 />
                 <CardContent>
                   <div>
-                    <img src={icon2} alt="icon2" className={classes.img} />
+                    <img src={icon1} alt="icon1" className={classes.img} />
                   </div>
                   <div>
                     <Typography
@@ -214,7 +214,7 @@ export default function Landing() {
                       component="p"
                       align="center"
                     >
-                      Of course it's completely free for you, and non-hassle.
+                    All your favourite desserts in one go.
                     </Typography>
                   </div>
                 </CardContent>
@@ -240,7 +240,7 @@ export default function Landing() {
                       component="p"
                       align="center"
                     >
-                      See your friends, family & colleagues' meal posts!
+                      See all the bake goods by different talented bakers!
                     </Typography>
                   </div>
                 </CardContent>
