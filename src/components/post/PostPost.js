@@ -37,6 +37,7 @@ class PostPost extends Component {
   state = {
     open: false,
     body: {},
+    text: "",
     errors: {},
   };
   componentWillReceiveProps(nextProps) {
@@ -46,7 +47,7 @@ class PostPost extends Component {
       });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      this.setState({ body: {}, open: false, errors: {} });
+      this.setState({ body: {}, text: "", open: false, errors: {} });
     }
   }
   handleOpen = () => {
@@ -61,6 +62,9 @@ class PostPost extends Component {
     const newPost = new FormData();
     newPost.append("image", image, image.name);
     this.setState({ body: newPost });
+  };
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = (event) => {
     event.preventDefault();
@@ -94,6 +98,19 @@ class PostPost extends Component {
           <DialogTitle>Show off your meal!</DialogTitle>
           <DialogContent>
             <form onSubmit={this.handleSubmit.bind(this)}>
+              <TextField
+                name="text"
+                type="text"
+                label="SCREAM!!"
+                multiline
+                rows="3"
+                placeholder="Scream at your fellow apes"
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textField}
+                onChange={this.handleChange}
+                fullWidth
+              />
               <input
                 type="file"
                 id="imageInput"

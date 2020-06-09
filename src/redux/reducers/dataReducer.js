@@ -7,6 +7,7 @@ import {
   POST_POST,
   SET_POST,
   SUBMIT_COMMENT,
+  POST_TEXT,
 } from "../types";
 
 const initialState = {
@@ -64,6 +65,20 @@ export default function (state = initialState, action) {
           ...state.post,
           comments: [action.payload, ...state.post.comments],
         },
+      };
+    //
+    case POST_TEXT:
+      let postIndex = state.posts.findIndex(
+        (post) => post.postId === action.payload.postId
+      );
+      state.posts[postIndex] = action.payload;
+      if (state.post.postId === action.payload.postId) {
+        let temporary = state.post.text;
+        state.post = action.payload;
+        state.post.text = temporary;
+      }
+      return {
+        ...state,
       };
     default:
       return state;

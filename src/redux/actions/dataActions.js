@@ -11,6 +11,7 @@ import {
   SET_POST,
   STOP_LOADING_UI,
   SUBMIT_COMMENT,
+  POST_TEXT,
 } from "../types";
 import axios from "axios";
 
@@ -93,6 +94,24 @@ export const unlikePost = (postId) => (dispatch) => {
       console.log(res.data);
     })
     .catch((err) => console.log(err));
+};
+// Submit a captiom
+export const postText = (postId, postTextData) => (dispatch) => {
+  axios
+    .post(`/post/${postId}/addPostText`, postTextData)
+    .then((res) => {
+      dispatch({
+        type: POST_TEXT,
+        payload: res.data,
+      });
+      dispatch(clearErrors());
+    })
+    .catch((err) => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data,
+      });
+    });
 };
 // Submit a comment
 export const submitComment = (postId, commentData) => (dispatch) => {
