@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -14,6 +15,9 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import Avatar from "@material-ui/core/Avatar";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardActionArea from "@material-ui/core/CardActionArea";
 
 //Redux
 import { connect } from "react-redux";
@@ -25,12 +29,14 @@ const styles = {
     marginBottom: 20,
   },
   image: {
-    width: 100,
-    height: 100,
+    height: 140,
+    paddingTop: "56.25%",
+    borderRadius: "2%",
   },
   imageUploaded: {
-    width: 350,
-    height: 350,
+    //width: 140,
+    height: 265,
+    paddingTop: "56.25%",
     borderRadius: "2%",
   },
   caption: {
@@ -50,14 +56,17 @@ const styles = {
   commentCount: {
     position: "absolute",
     left: "46%",
+    top:"24%",
     bottom: "8%",
   },
   likeCount: {
     position: "absolute",
-    left: "29%",
-    bottom: "8%",
+    left: "%",
+    top:"30%",
+    bottom: "10%",
   },
 };
+
 class Post extends Component {
   render() {
     dayjs.extend(relativeTime);
@@ -88,49 +97,66 @@ class Post extends Component {
       authenticated && userHandle === handle ? (
         <PostText postId={postId} />
       ) : null;
+
     return (
       <Card className={classes.card}>
-        <CardMedia
-          image={userImage}
-          title="Profile Image"
-          className={classes.profileImage}
-        />
-        <CardContent className={classes.content}>
-          <Typography
-            variant="h5"
-            component={Link}
-            to={`/users/${userHandle}`}
-            color="secondary"
-          >
-            {userHandle}
-          </Typography>
-          {deleteButton}
-
-          <Typography variant="body2" color="textSecondary">
-            {dayjs(createdAt).fromNow()}
-          </Typography>
-
-          {
+        <CardActionArea>
+          <CardContent>
+            <CardHeader
+              avatar={
+                <Avatar
+                  aria-label="Profile Image"
+                  className={classes.profileImage}
+                >
+                  <CardMedia
+                    image={userImage}
+                    className={classes.profileImage}
+                  />
+                </Avatar>
+              }
+              action={deleteButton}
+              title={
+                <Typography
+                  variant="h5"
+                  component={Link}
+                  to={`/users/${userHandle}`}
+                  color="secondary"
+                >
+                  {userHandle}
+                </Typography>
+              }
+              subheader={
+                <Typography variant="body2" color="textSecondary">
+                  {dayjs(createdAt).fromNow()}
+                </Typography>
+              }
+            />
             <CardMedia
               image={body}
               title="image"
               className={classes.imageUploaded}
             />
-          }
-          <span className={classes.caption}>
-            <Typography variant="body1">{text}</Typography>
-          </span>
-          {postTextButton}
-          <LikeButton postId={postId} />
-          <span className={classes.likeCount}>{likeCount} Likes</span>
 
-          <span className={classes.commentCount}>{commentCount} comments</span>
-          <PostDialog
-            postId={postId}
-            userHandle={userHandle}
-            openDialog={this.props.openDialog}
-          />
-        </CardContent>
+            <span className={classes.caption}>
+              <Typography variant="body1">{text}</Typography>
+            </span>
+            {postTextButton}
+
+            <CardActionArea>
+              <LikeButton postId={postId} />
+              <span className={classes.likeCount}>{likeCount} Likes</span>
+
+              <span className={classes.commentCount}>
+                {commentCount} comments
+              </span>
+              <PostDialog
+                postId={postId}
+                userHandle={userHandle}
+                openDialog={this.props.openDialog}
+              />
+            </CardActionArea>
+          </CardContent>
+        </CardActionArea>
       </Card>
     );
   }

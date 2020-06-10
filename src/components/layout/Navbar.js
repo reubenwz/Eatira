@@ -24,6 +24,7 @@ class Navbar extends Component {
       <div>
         <AppBar>
           <Toolbar className="nav-container">
+            <Avatar alt="Eatira" src="https://i.imgur.com/q2hXkFV.jpg" />
             {authenticated ? (
               <Fragment>
                 <PostPost />
@@ -32,6 +33,7 @@ class Navbar extends Component {
                     <HomeIcon />
                   </MyButton>
                 </Link>
+
                 <Link to="/plan">
                   <MyButton tip="Plan A Meal">
                     <FastfoodIcon />
