@@ -33,6 +33,9 @@ const styles = {
     height: 350,
     borderRadius: "2%",
   },
+  caption: {
+    maxWidth: 350,
+  },
   content: {
     padding: 25,
     objectFit: "cover",
@@ -114,7 +117,9 @@ class Post extends Component {
               className={classes.imageUploaded}
             />
           }
-          <Typography variant="body1">{text}</Typography>
+          <span className={classes.caption}>
+            <Typography variant="body1">{text}</Typography>
+          </span>
           {postTextButton}
           <LikeButton postId={postId} />
           <span className={classes.likeCount}>{likeCount} Likes</span>
