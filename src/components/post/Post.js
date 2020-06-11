@@ -64,7 +64,7 @@ const styles = {
   likeCount: {
     position: "absolute",
     left: "%",
-    top: "30%",
+    top: "34%",
     bottom: "10%",
   },
 };
@@ -152,6 +152,7 @@ class Post extends Component {
               <OrderButton postId={postId} quantity={quantity} />
             </span>
             {postTextButton}
+            <br />
             {editQuantityButton}
 
             <CardActionArea>

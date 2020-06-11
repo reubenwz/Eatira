@@ -24,9 +24,9 @@ class Navbar extends Component {
       <div>
         <AppBar>
           <Toolbar className="nav-container">
-            <Avatar alt="Eatira" src="https://i.imgur.com/q2hXkFV.jpg" />
             {authenticated ? (
               <Fragment>
+              <Avatar alt="Eatira" src="https://i.imgur.com/q2hXkFV.jpg" />
                 <PostPost />
                 <Link to="/home">
                   <MyButton tip="Home">
