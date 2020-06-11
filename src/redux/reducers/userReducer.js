@@ -5,6 +5,8 @@ import {
   LOADING_USER,
   LIKE_POST,
   UNLIKE_POST,
+  ORDER,
+  UNORDER,
   MARK_NOTIFICATIONS_READ,
 } from "../types";
 
@@ -14,6 +16,7 @@ const initialState = {
   credentials: {},
   likes: [],
   notifications: [],
+  orders: [],
 };
 
 export default function (state = initialState, action) {
@@ -52,6 +55,24 @@ export default function (state = initialState, action) {
         ...state,
         likes: state.likes.filter(
           (like) => like.postId !== action.payload.postId
+        ),
+      };
+    case ORDER:
+      return {
+        ...state,
+        orders: [
+          ...state.orders,
+          {
+            userHandle: state.credentials.handle,
+            postId: action.payload.postId,
+          },
+        ],
+      };
+    case UNORDER:
+      return {
+        ...state,
+        orders: state.orders.filter(
+          (order) => order.postId !== action.payload.postId
         ),
       };
     case MARK_NOTIFICATIONS_READ:

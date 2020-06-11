@@ -9,6 +9,8 @@ import DeletePost from "./DeletePost";
 import PostDialog from "./PostDialog";
 import LikeButton from "./LikeButton";
 import PostText from "./PostTextForm";
+import OrderButton from "./OrderButton";
+import EditQuantity from "./EditQuantity";
 
 //MUI stuff
 import Card from "@material-ui/core/Card";
@@ -21,6 +23,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 
 //Redux
 import { connect } from "react-redux";
+import { Button } from "@material-ui/core";
 
 const styles = {
   card: {
@@ -34,7 +37,7 @@ const styles = {
     borderRadius: "2%",
   },
   imageUploaded: {
-    //width: 140,
+    // width: 265,
     height: 265,
     paddingTop: "56.25%",
     borderRadius: "2%",
@@ -50,19 +53,18 @@ const styles = {
     width: 80,
     height: 80,
     borderRadius: "50%",
-    margin: "10px",
     objectFit: "cover",
   },
   commentCount: {
     position: "absolute",
     left: "46%",
-    top:"24%",
+    top: "24%",
     bottom: "8%",
   },
   likeCount: {
     position: "absolute",
     left: "%",
-    top:"30%",
+    top: "30%",
     bottom: "10%",
   },
 };
@@ -81,6 +83,7 @@ class Post extends Component {
         postId,
         likeCount,
         commentCount,
+        quantity,
       },
       user: {
         authenticated,
@@ -96,6 +99,11 @@ class Post extends Component {
     const postTextButton =
       authenticated && userHandle === handle ? (
         <PostText postId={postId} />
+      ) : null;
+
+    const editQuantityButton =
+      authenticated && userHandle === handle ? (
+        <EditQuantity postId={postId} />
       ) : null;
 
     return (
@@ -139,8 +147,11 @@ class Post extends Component {
 
             <span className={classes.caption}>
               <Typography variant="body1">{text}</Typography>
+              <Typography variant="body1">{quantity} left</Typography>
+              <OrderButton postId={postId} />
             </span>
             {postTextButton}
+            {editQuantityButton}
 
             <CardActionArea>
               <LikeButton postId={postId} />

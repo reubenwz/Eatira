@@ -15,7 +15,7 @@ import Container from "@material-ui/core/Container";
 
 //Icons
 import HomeIcon from "@material-ui/icons/Home";
-import FastfoodIcon from "@material-ui/icons/Fastfood";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 class Navbar extends Component {
   render() {
@@ -35,8 +35,8 @@ class Navbar extends Component {
                 </Link>
 
                 <Link to="/plan">
-                  <MyButton tip="Plan A Meal">
-                    <FastfoodIcon />
+                  <MyButton tip="Food Cart">
+                    <ShoppingCartIcon />
                   </MyButton>
                 </Link>
                 <Notifications />

@@ -15,8 +15,11 @@ export const SET_POSTS = "SET_POSTS";
 export const SET_POST = "SET_POST";
 export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
+export const ORDER = "ORDER";
+export const UNORDER = "UNORDER";
 export const DELETE_POST = "DELETE_POST";
 export const POST_POST = "POST_POST";
 export const SUBMIT_COMMENT = "SUBMIT_COMMENT";
 
 export const POST_TEXT = "POST_TEXT";
+export const EDIT_QUANTITY = "EDIT_QUANTITY";

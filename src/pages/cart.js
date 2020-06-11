@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-export class plan extends Component {
+export class cart extends Component {
   render() {
     return <div></div>;
   }
 }
 
-export default plan;
+export default cart;

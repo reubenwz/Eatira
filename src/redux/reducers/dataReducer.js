@@ -2,12 +2,15 @@ import {
   SET_POSTS,
   LIKE_POST,
   UNLIKE_POST,
+  ORDER,
+  UNORDER,
   LOADING_DATA,
   DELETE_POST,
   POST_POST,
   SET_POST,
   SUBMIT_COMMENT,
   POST_TEXT,
+  EDIT_QUANTITY,
 } from "../types";
 
 const initialState = {
@@ -48,6 +51,20 @@ export default function (state = initialState, action) {
       return {
         ...state,
       };
+    case ORDER:
+    case UNORDER:
+      let orderIndex = state.posts.findIndex(
+        (post) => post.postId === action.payload.postId
+      );
+      state.posts[orderIndex] = action.payload;
+      if (state.post.postId === action.payload.postId) {
+        let temporary = state.post.comments;
+        state.post = action.payload;
+        state.post.comments = temporary;
+      }
+      return {
+        ...state,
+      };
     case DELETE_POST:
       return {
         ...state,
@@ -72,6 +89,19 @@ export default function (state = initialState, action) {
         (post) => post.postId === action.payload.postId
       );
       state.posts[postIndex] = action.payload;
+      if (state.post.postId === action.payload.postId) {
+        let temporary = state.post.text;
+        state.post = action.payload;
+        state.post.text = temporary;
+      }
+      return {
+        ...state,
+      };
+    case EDIT_QUANTITY:
+      let quantityIndex = state.posts.findIndex(
+        (post) => post.postId === action.payload.postId
+      );
+      state.posts[quantityIndex] = action.payload;
       if (state.post.postId === action.payload.postId) {
         let temporary = state.post.text;
         state.post = action.payload;

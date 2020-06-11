@@ -3,6 +3,8 @@ import {
   LOADING_DATA,
   LIKE_POST,
   UNLIKE_POST,
+  ORDER,
+  UNORDER,
   DELETE_POST,
   POST_POST,
   CLEAR_ERRORS,
@@ -12,6 +14,7 @@ import {
   STOP_LOADING_UI,
   SUBMIT_COMMENT,
   POST_TEXT,
+  EDIT_QUANTITY,
 } from "../types";
 import axios from "axios";
 
@@ -95,7 +98,54 @@ export const unlikePost = (postId) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-// Submit a captiom
+
+//Order
+export const order = (postId) => (dispatch) => {
+  axios
+    .get(`/post/${postId}/order`)
+    .then((res) => {
+      dispatch({
+        type: ORDER,
+        payload: res.data,
+      });
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
+};
+
+//Unorder
+export const unorder = (postId) => (dispatch) => {
+  axios
+    .get(`/post/${postId}/unorder`)
+    .then((res) => {
+      dispatch({
+        type: UNORDER,
+        payload: res.data,
+      });
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
+};
+
+// Edit Quantity
+export const quantity = (postId, quantityData) => (dispatch) => {
+  axios
+    .post(`/post/${postId}/editQuantity`, quantityData)
+    .then((res) => {
+      dispatch({
+        type: EDIT_QUANTITY,
+        payload: res.data,
+      });
+      dispatch(clearErrors());
+    })
+    .catch((err) => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data,
+      });
+    });
+};
+// Submit a caption
 export const postText = (postId, postTextData) => (dispatch) => {
   axios
     .post(`/post/${postId}/addPostText`, postTextData)
