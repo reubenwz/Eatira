@@ -20,6 +20,7 @@ export class OrderButton extends Component {
   };
   order = () => {
     this.props.order(this.props.postId);
+    alert("Your order has been send to the seller!");
   };
   unorder = () => {
     this.props.unorder(this.props.postId);
@@ -28,14 +29,20 @@ export class OrderButton extends Component {
     const { authenticated } = this.props.user;
     const orderButton = !authenticated ? (
       <Link to="/login">
-        <Button color="primary">Order</Button>
+        <Button color="primary" disabled={this.props.quantity <= 0}>
+          Order
+        </Button>
       </Link>
     ) : this.ordered() ? (
       <Button color="secondary" onClick={this.unorder}>
         Remove Order
       </Button>
     ) : (
-      <Button color="primary" onClick={this.order}>
+      <Button
+        color="primary"
+        disabled={this.props.quantity <= 0}
+        onClick={this.order}
+      >
         Order
       </Button>
     );
@@ -48,6 +55,7 @@ OrderButton.propTypes = {
   postId: PropTypes.string.isRequired,
   order: PropTypes.func.isRequired,
   unorder: PropTypes.func.isRequired,
+  quantity: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

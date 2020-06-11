@@ -139,6 +139,7 @@ class Post extends Component {
                 </Typography>
               }
             />
+
             <CardMedia
               image={body}
               title="image"
@@ -148,7 +149,7 @@ class Post extends Component {
             <span className={classes.caption}>
               <Typography variant="body1">{text}</Typography>
               <Typography variant="body1">{quantity} left</Typography>
-              <OrderButton postId={postId} />
+              <OrderButton postId={postId} quantity={quantity} />
             </span>
             {postTextButton}
             {editQuantityButton}

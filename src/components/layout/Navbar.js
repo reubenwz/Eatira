@@ -34,7 +34,7 @@ class Navbar extends Component {
                   </MyButton>
                 </Link>
 
-                <Link to="/plan">
+                <Link to="/cart">
                   <MyButton tip="Food Cart">
                     <ShoppingCartIcon />
                   </MyButton>
