@@ -86,7 +86,7 @@ class Notifications extends Component {
                 variant="body1"
                 to={`/users/${not.recipient}/post/${not.postId}`}
               >
-                {not.sender} {verb} your post {time}
+                {not.sender} {verb} your item {time}
               </Typography>
             </MenuItem>
           );

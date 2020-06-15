@@ -24,6 +24,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 //Redux
 import { connect } from "react-redux";
 import { Button } from "@material-ui/core";
+import { red } from "@material-ui/core/colors";
 
 const styles = {
   card: {
@@ -64,7 +65,7 @@ const styles = {
   likeCount: {
     position: "absolute",
     left: "%",
-    top: "34%",
+    top: "30%",
     bottom: "10%",
   },
 };
@@ -148,11 +149,18 @@ class Post extends Component {
 
             <span className={classes.caption}>
               <Typography variant="body1">{text}</Typography>
-              <Typography variant="body1">{quantity} left</Typography>
+              <Typography
+                variant="body1"
+                style={{
+                  color: "#b19cd9",
+                  fontFamily: "Lucidatypewriter, monospace",
+                }}
+              >
+                {quantity} left
+              </Typography>
               <OrderButton postId={postId} quantity={quantity} />
             </span>
             {postTextButton}
-            <br />
             {editQuantityButton}
 
             <CardActionArea>

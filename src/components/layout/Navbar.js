@@ -26,8 +26,10 @@ class Navbar extends Component {
           <Toolbar className="nav-container">
             {authenticated ? (
               <Fragment>
-              <Avatar alt="Eatira" src="https://i.imgur.com/q2hXkFV.jpg" />
+                <Avatar alt="Eatira" src="https://i.imgur.com/q2hXkFV.jpg" />
+
                 <PostPost />
+
                 <Link to="/home">
                   <MyButton tip="Home">
                     <HomeIcon />
@@ -39,6 +41,7 @@ class Navbar extends Component {
                     <ShoppingCartIcon />
                   </MyButton>
                 </Link>
+
                 <Notifications />
               </Fragment>
             ) : (
