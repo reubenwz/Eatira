@@ -11,10 +11,12 @@ import {
   SUBMIT_COMMENT,
   POST_TEXT,
   EDIT_QUANTITY,
+  SET_CARTITEM,
 } from "../types";
 
 const initialState = {
   posts: [],
+  cartitem: [],
   post: {},
   loading: false,
 };
@@ -30,6 +32,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         posts: action.payload,
+        loading: false,
+      };
+    case SET_CARTITEM:
+      return {
+        ...state,
+        cartitem: action.payload,
         loading: false,
       };
     case SET_POST:

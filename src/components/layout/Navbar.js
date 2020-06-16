@@ -19,7 +19,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 class Navbar extends Component {
   render() {
-    const { authenticated, classes } = this.props;
+    const { authenticated } = this.props;
     return (
       <div>
         <AppBar>

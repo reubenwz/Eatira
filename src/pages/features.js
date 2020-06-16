@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -209,7 +209,7 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                    Input your address and payment method.
+                      Input your address and payment method.
                     </Typography>
                   </div>
                 </CardContent>
@@ -239,7 +239,8 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                    You should receive an e-mail confirming your order within a couple of hours. 
+                      You should receive an e-mail confirming your order within
+                      a couple of hours.
                     </Typography>
                   </div>
                 </CardContent>

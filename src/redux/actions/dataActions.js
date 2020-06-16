@@ -15,6 +15,7 @@ import {
   SUBMIT_COMMENT,
   POST_TEXT,
   EDIT_QUANTITY,
+  SET_CARTITEM,
 } from "../types";
 import axios from "axios";
 
@@ -207,6 +208,25 @@ export const getUserData = (userHandle) => (dispatch) => {
       });
     });
 };
+
+export const getUserCartData = (userHandle) => (dispatch) => {
+  dispatch({ type: LOADING_DATA });
+  axios
+    .get(`/user/${userHandle}/cart`)
+    .then((res) => {
+      dispatch({
+        type: SET_CARTITEM,
+        payload: res.data.cartitem,
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: SET_CARTITEM,
+        payload: null,
+      });
+    });
+};
+
 export const clearErrors = () => (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };

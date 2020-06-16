@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -85,17 +85,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
-
-const footers = [
-  {
-    title: "COMPANY",
-    description: ["About Us"],
-  },
-  {
-    title: "HELP",
-    description: ["FAQ", "Contact Us"],
-  },
-];
 
 export default function FAQ() {
   const classes = useStyles();

@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -85,17 +83,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
-
-const footers = [
-  {
-    title: "COMPANY",
-    description: ["About Us"],
-  },
-  {
-    title: "HELP",
-    description: ["FAQ", "Contact Us"],
-  },
-];
 
 export default function AboutUs() {
   const classes = useStyles();

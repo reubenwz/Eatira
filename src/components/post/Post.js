@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -23,8 +22,6 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 
 //Redux
 import { connect } from "react-redux";
-import { Button } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
 
 const styles = {
   card: {

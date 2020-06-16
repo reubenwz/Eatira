@@ -10,7 +10,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import EmailIcon from "@material-ui/icons/EmailTwoTone";
 import LockIcon from "@material-ui/icons/LockTwoTone";
 import PersonTwoToneIcon from "@material-ui/icons/PersonTwoTone";
 import AlternateEmailTwoToneIcon from "@material-ui/icons/AlternateEmailTwoTone";
