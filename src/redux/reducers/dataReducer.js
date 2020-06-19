@@ -14,6 +14,13 @@ import {
   SET_CARTITEM,
 } from "../types";
 
+import {
+  ADD_TO_CART,
+  REMOVE_ITEM,
+  SUB_QUANTITY,
+  ADD_QUANTITY,
+} from "../../components/actions/action-types/cart-actions";
+
 const initialState = {
   posts: [],
   cartitem: [],
@@ -117,6 +124,71 @@ export default function (state = initialState, action) {
       }
       return {
         ...state,
+      };
+    case ADD_TO_CART:
+      let addedItem = state.items.find(
+        (item) => item.payload.postId === action.payload.postId
+      );
+      //check if the action id exists in the addedItems
+      let existed_item = state.addedItems.find(
+        (item) => action.payload.postId === item.payload.postId
+      );
+      if (existed_item) {
+        addedItem.quantity += 1;
+        return {
+          ...state,
+          total: state.total + addedItem.price,
+        };
+      } else {
+        addedItem.quantity = 1;
+        //calculating the total
+        let newTotal = state.total + addedItem.price;
+
+        return {
+          ...state,
+          addedItems: [...state.addedItems, addedItem],
+          total: newTotal,
+        };
+      }
+    case REMOVE_ITEM:
+      let itemToRemove = state.addedItems.find(
+        (item) => action.payload.postId === item.payload.postId
+      );
+      let new_items = state.addedItems.filter(
+        (item) => action.payload.postId !== item.payload.postId
+      );
+
+      //calculating the total
+      let newTotal = state.total - itemToRemove.price * itemToRemove.quantity;
+      console.log(itemToRemove);
+      return {
+        ...state,
+        addedItems: new_items,
+        total: newTotal,
+      };
+    case ADD_QUANTITY:
+      addedItem.quantity += 1;
+      return {
+        ...state,
+        total: newTotal,
+      };
+      case SUB_QUANTITY:
+        if(addedItem.quantity === 1){
+          let new_items = state.addedItems.filter(item=>item.payload.postId !== action.payload.postId)
+          let newTotal = state.total - addedItem.price
+          return{
+              ...state,
+              addedItems: new_items,
+              total: newTotal
+          }
+      }
+      else {
+          addedItem.quantity -= 1
+          let newTotal = state.total - addedItem.price
+          return{
+              ...state,
+              total: newTotal
+          }
       };
     default:
       return state;

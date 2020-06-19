@@ -22,6 +22,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 
 //Redux
 import { connect } from "react-redux";
+import { addToCart } from '../actions/cartActions';
 
 const styles = {
   card: {
@@ -68,6 +69,11 @@ const styles = {
 };
 
 class Post extends Component {
+
+  handleClick = (postId)=>{
+    this.props.addToCart(postId); 
+}
+
   render() {
     dayjs.extend(relativeTime);
     const {
@@ -155,7 +161,7 @@ class Post extends Component {
               >
                 {quantity} left
               </Typography>
-              <OrderButton postId={postId} quantity={quantity} />
+              <OrderButton postId={postId} quantity={quantity} onClick={()=>{this.handleClick(postId)}} />
             </span>
             {postTextButton}
             {editQuantityButton}
@@ -186,8 +192,16 @@ Post.propTypes = {
   classes: PropTypes.object.isRequired,
   openDialog: PropTypes.bool,
 };
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+  return {
   user: state.user,
-});
+}};
 
-export default connect(mapStateToProps)(withStyles(styles)(Post));
+const mapDispatchToProps= (dispatch)=>{
+    
+  return{
+      addToCart: (postId)=>{dispatch(addToCart(postId))}
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(Post));

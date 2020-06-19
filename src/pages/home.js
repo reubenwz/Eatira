@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { getPosts } from "../redux/actions/dataActions";
 
 class home extends Component {
+
   componentDidMount() {
     this.props.getPosts();
   }
