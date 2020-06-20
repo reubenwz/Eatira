@@ -19,6 +19,7 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
 
 //Redux
 import { connect } from "react-redux";
@@ -55,34 +56,34 @@ const styles = {
     objectFit: "cover",
   },
   LikeButton: {
-    position: "absolute",
-    left: "0%",
-    top: "30%",
-    bottom: "8%",
+    position: "flex",
+    left: "2%",
+    top: "15%",
+    bottom: "0%",
   },
   likeCount: {
     position: "absolute",
     left: "20%",
-    top: "30%",
-    bottom: "8%",
+    top: "50%",
+    bottom: "30%",
   },
   PostDialog: {
-    position: "absolute",
-    left: "40%",
-    top: "30%",
+    position: "flex ",
+    left: "30%",
+    top: "0%",
     bottom: "0%",
   },
   commentCount: {
     position: "absolute",
     left: "60%",
-    top: "24%",
-    bottom: "8%",
+    top: "50%",
+    bottom: "35%",
   },
   OrderButton: {
-    position: "absolute",
-    left: "80%",
-    top: "30%",
-    bottom: "0%",
+    position: "flex",
+    left: "0%",
+    top: "50%",
+    bottom: "30%",
   },
 };
 
@@ -176,13 +177,27 @@ class Post extends Component {
               </Typography>
             </span>
             {postTextButton}
+            <br />
             {editQuantityButton}
 
             <CardActionArea>
+              <span className={classes.OrderButton}>
+                <OrderButton
+                  postId={postId}
+                  quantity={quantity}
+                  openDialog={this.props.openDialog}
+                />
+              </span><br/>
+            </CardActionArea>
+
+            <CardActionArea>
+              <br />
               <span className={classes.LikeButton}>
                 <LikeButton postId={postId} />
               </span>
+              <br />
               <span className={classes.likeCount}>{likeCount} Likes</span>
+                
               <span className={classes.PostDialog}>
                 <PostDialog
                   postId={postId}
@@ -193,14 +208,8 @@ class Post extends Component {
               <span className={classes.commentCount}>
                 {commentCount} comments
               </span>
-              <span className={classes.OrderButton}>
-                <OrderButton
-                  postId={postId}
-                  quantity={quantity}
-                  openDialog={this.props.openDialog}
-                />
-              </span>
-            </CardActionArea>
+            </CardActionArea><br/>
+            
           </CardContent>
         </CardActionArea>
       </Card>
