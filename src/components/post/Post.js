@@ -22,7 +22,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 
 //Redux
 import { connect } from "react-redux";
-import { addToCart } from '../actions/cartActions';
+import { addToCart } from "../actions/cartActions";
 
 const styles = {
   card: {
@@ -54,26 +54,39 @@ const styles = {
     borderRadius: "50%",
     objectFit: "cover",
   },
-  commentCount: {
+  LikeButton: {
     position: "absolute",
-    left: "46%",
-    top: "24%",
+    left: "0%",
+    top: "30%",
     bottom: "8%",
   },
   likeCount: {
     position: "absolute",
-    left: "%",
+    left: "20%",
     top: "30%",
-    bottom: "10%",
+    bottom: "8%",
+  },
+  PostDialog: {
+    position: "absolute",
+    left: "40%",
+    top: "30%",
+    bottom: "0%",
+  },
+  commentCount: {
+    position: "absolute",
+    left: "60%",
+    top: "24%",
+    bottom: "8%",
+  },
+  OrderButton: {
+    position: "absolute",
+    left: "80%",
+    top: "30%",
+    bottom: "0%",
   },
 };
 
 class Post extends Component {
-
-  handleClick = (postId)=>{
-    this.props.addToCart(postId); 
-}
-
   render() {
     dayjs.extend(relativeTime);
     const {
@@ -161,23 +174,32 @@ class Post extends Component {
               >
                 {quantity} left
               </Typography>
-              <OrderButton postId={postId} quantity={quantity} onClick={()=>{this.handleClick(postId)}} />
             </span>
             {postTextButton}
             {editQuantityButton}
 
             <CardActionArea>
-              <LikeButton postId={postId} />
+              <span className={classes.LikeButton}>
+                <LikeButton postId={postId} />
+              </span>
               <span className={classes.likeCount}>{likeCount} Likes</span>
-
+              <span className={classes.PostDialog}>
+                <PostDialog
+                  postId={postId}
+                  userHandle={userHandle}
+                  openDialog={this.props.openDialog}
+                />
+              </span>
               <span className={classes.commentCount}>
                 {commentCount} comments
               </span>
-              <PostDialog
-                postId={postId}
-                userHandle={userHandle}
-                openDialog={this.props.openDialog}
-              />
+              <span className={classes.OrderButton}>
+                <OrderButton
+                  postId={postId}
+                  quantity={quantity}
+                  openDialog={this.props.openDialog}
+                />
+              </span>
             </CardActionArea>
           </CardContent>
         </CardActionArea>
@@ -194,14 +216,19 @@ Post.propTypes = {
 };
 const mapStateToProps = (state) => {
   return {
-  user: state.user,
-}};
+    user: state.user,
+  };
+};
 
-const mapDispatchToProps= (dispatch)=>{
-    
-  return{
-      addToCart: (postId)=>{dispatch(addToCart(postId))}
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (postId) => {
+      dispatch(addToCart(postId));
+    },
+  };
+};
 
-export default connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(Post));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(Post));

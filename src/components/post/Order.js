@@ -7,9 +7,7 @@ import PropTypes from "prop-types";
 //MUI stuff
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardActionArea from "@material-ui/core/CardActionArea";
 
 //Redux
@@ -39,6 +37,24 @@ const styles = {
     padding: 25,
     objectFit: "cover",
   },
+  profileImage: {
+    width: 80,
+    height: 80,
+    borderRadius: "50%",
+    objectFit: "cover",
+  },
+  commentCount: {
+    position: "absolute",
+    left: "46%",
+    top: "24%",
+    bottom: "8%",
+  },
+  likeCount: {
+    position: "absolute",
+    left: "%",
+    top: "30%",
+    bottom: "10%",
+  },
 };
 
 class Order extends Component {
@@ -46,28 +62,23 @@ class Order extends Component {
     dayjs.extend(relativeTime);
     const {
       classes,
-      cartitem: { body, createdAt, sellerHandle },
+      order: { name, address, email, contact, paymentMethod, additionalInfo },
     } = this.props;
 
     return (
       <Card className={classes.card}>
         <CardActionArea>
           <CardContent>
-            <CardHeader
-              title={
-                <Typography variant="body2" color="textSecondary">
-                  Ordered: {dayjs(createdAt).fromNow()}
-                </Typography>
-              }
-            />
-            <CardMedia
-              image={body}
-              title="image"
-              className={classes.imageUploaded}
-            />
-            <span className={classes.caption}>
-              <Typography variant="body1">Seller: {sellerHandle}</Typography>
-            </span>
+            <Typography variant="body1">Name: {name}</Typography>
+            <Typography variant="body1">Address: {address}</Typography>
+            <Typography variant="body1">Email: {email}</Typography>
+            <Typography variant="body1">Contact: {contact}</Typography>
+            <Typography variant="body1">
+              Payment Method:{paymentMethod}
+            </Typography>
+            <Typography variant="body1">
+              Additional Info: {additionalInfo}
+            </Typography>
           </CardContent>
         </CardActionArea>
       </Card>
@@ -76,13 +87,14 @@ class Order extends Component {
 }
 
 Order.propTypes = {
-  user: PropTypes.object.isRequired,
-  cartitem: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   openDialog: PropTypes.bool,
 };
-const mapStateToProps = (state) => ({
-  user: state.user,
-});
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
 
 export default connect(mapStateToProps)(withStyles(styles)(Order));

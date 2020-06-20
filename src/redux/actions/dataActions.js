@@ -15,7 +15,7 @@ import {
   SUBMIT_COMMENT,
   POST_TEXT,
   EDIT_QUANTITY,
-  SET_CARTITEM,
+  SUBMIT_ORDER,
 } from "../types";
 import axios from "axios";
 
@@ -209,19 +209,41 @@ export const getUserData = (userHandle) => (dispatch) => {
     });
 };
 
-export const getUserCartData = (userHandle) => (dispatch) => {
-  dispatch({ type: LOADING_DATA });
+// Submit order
+export const submitOrder = (newOrder) => (dispatch) => {
+  dispatch({ type: LOADING_UI });
   axios
-    .get(`/user/${userHandle}/cart`)
+    .post("/submitorder", newOrder)
     .then((res) => {
       dispatch({
-        type: SET_CARTITEM,
-        payload: res.data.cartitem,
+        type: SUBMIT_ORDER,
+        payload: res.data.orders,
+      });
+      dispatch(clearErrors());
+    })
+    .catch((err) => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data,
+      });
+    });
+};
+
+//Get user orders
+export const getOrderData = (userHandle) => (dispatch) => {
+  dispatch({ type: LOADING_DATA });
+  axios
+    .get(`/order/${userHandle}`)
+    .then((res) => {
+      dispatch({
+        type: SUBMIT_ORDER,
+        payload: res.data.orders,
       });
     })
+    .then(console.log("getorderdata in dataactions executed"))
     .catch(() => {
       dispatch({
-        type: SET_CARTITEM,
+        type: SUBMIT_ORDER,
         payload: null,
       });
     });

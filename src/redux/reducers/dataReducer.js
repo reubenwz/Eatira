@@ -12,6 +12,7 @@ import {
   POST_TEXT,
   EDIT_QUANTITY,
   SET_CARTITEM,
+  SUBMIT_ORDER,
 } from "../types";
 
 import {
@@ -25,6 +26,7 @@ const initialState = {
   posts: [],
   cartitem: [],
   post: {},
+  orders: [],
   loading: false,
 };
 
@@ -112,6 +114,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
       };
+    case SUBMIT_ORDER:
+      return {
+        ...state,
+        orders: action.payload,
+        loading: false,
+      };
     case EDIT_QUANTITY:
       let quantityIndex = state.posts.findIndex(
         (post) => post.postId === action.payload.postId
@@ -172,24 +180,25 @@ export default function (state = initialState, action) {
         ...state,
         total: newTotal,
       };
-      case SUB_QUANTITY:
-        if(addedItem.quantity === 1){
-          let new_items = state.addedItems.filter(item=>item.payload.postId !== action.payload.postId)
-          let newTotal = state.total - addedItem.price
-          return{
-              ...state,
-              addedItems: new_items,
-              total: newTotal
-          }
+    case SUB_QUANTITY:
+      if (addedItem.quantity === 1) {
+        let new_items = state.addedItems.filter(
+          (item) => item.payload.postId !== action.payload.postId
+        );
+        let newTotal = state.total - addedItem.price;
+        return {
+          ...state,
+          addedItems: new_items,
+          total: newTotal,
+        };
+      } else {
+        addedItem.quantity -= 1;
+        let newTotal = state.total - addedItem.price;
+        return {
+          ...state,
+          total: newTotal,
+        };
       }
-      else {
-          addedItem.quantity -= 1
-          let newTotal = state.total - addedItem.price
-          return{
-              ...state,
-              total: newTotal
-          }
-      };
     default:
       return state;
   }
