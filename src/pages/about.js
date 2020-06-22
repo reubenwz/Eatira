@@ -137,9 +137,9 @@ export default function AboutUs() {
                 align="center"
               >
                 Our goal is to help our users find the <strong>best</strong>{" "}
-                food social media application that can <strong>automate</strong>{" "}
-                all these painful processes of selecting a restaurant & decide
-                on the <strong>best</strong> menu to fit your requests.
+                dessert social media application with e-commerce
+                functionalities, that can purchase their dessert selections all
+                in one go from their favourite local bakers.
               </Typography>
               <br />
               <Typography variant="subtitle1" component="h2" align="center">

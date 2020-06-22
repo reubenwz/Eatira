@@ -95,7 +95,7 @@ class PostPost extends Component {
           >
             <CloseIcon />
           </MyButton>
-          <DialogTitle>Show off your meal!</DialogTitle>
+          <DialogTitle>What are your bakes of the day?</DialogTitle>
           <DialogContent>
             <form onSubmit={this.handleSubmit.bind(this)}>
               <input

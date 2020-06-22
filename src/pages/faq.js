@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -108,15 +109,14 @@ export default function FAQ() {
             id="panel1a-header"
           >
             <Typography className={classes.heading}>
-              1. Am I able to refer to a friend to sign up for an Eatira
-              account?
+              <strong>1. Do you deliver to all parts of Singapore?</strong>
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              Yes, and we encourage you to do so! Once you follow your friend's
-              account, both you and your friend are able to earn loyalty points
-              from Eatira.
+              Yes, and a flat fee will be charged depending on quantity and
+              location. Do contact the bakers that you ordered from for exact
+              delivery cost. Self collection is free and available.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -127,11 +127,11 @@ export default function FAQ() {
             id="panel2a-header"
           >
             <Typography className={classes.heading}>
-              2. How do I make reservations with the selected restaurant?
+              <strong>2. Are our prices inclusive of GST?</strong>
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>(In Progress ...)</Typography>
+            <Typography>We do not charge GST for our products.</Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
@@ -141,51 +141,67 @@ export default function FAQ() {
             id="panel3a-header"
           >
             <Typography className={classes.heading}>
-              3. Am I awarded when I make a reservation through Eatira?
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>(In Progress ...)</Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel>
-          <ExpansionPanelSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography className={classes.heading}>
-              4. How do I redeem Eatira-Points?
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>(In Progress ...)</Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel>
-          <ExpansionPanelSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography className={classes.heading}>
-              5. Why should I use Eatira?
+              <strong>3. How can I pay?</strong>
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              <li>
-                Convenience - Plan your meal destination with your friends 24/7
-                on the go!
-              </li>
-              <li>
-                Personalised Experience - Restaurant reviews, Restaurant type
-                and deals curated specially for you.
-              </li>
-              <li> Rewarding - Earn points as you eat!</li>
+              All payments have to be made upon ordering. We accept cash or
+              credit/debit card payments through PayLAH and PayNow.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3a-content"
+            id="panel3a-header"
+          >
+            <Typography className={classes.heading}>
+              <strong>4. Where do I make self colletion?</strong>
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              The exact address for self collection will be available to you
+              once the order has been confirmed.
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3a-content"
+            id="panel3a-header"
+          >
+            <Typography className={classes.heading}>
+              <strong>5. Why should I use Eatira?</strong>
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              <li>Convenience - Get your favourite baked goods in a click!</li>
+              <li>
+                Personalised Experience - Scroll through a diverse collection of
+                bakes by our talented bakers, and support local.
+              </li>
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <br />
+        <Typography variant="body1" align="center" gutterBottom>
+          More questions?
+        </Typography>
+        <Button
+          variant="contained"
+          fullWidth
+          align="center"
+          color="primary"
+          component={Link}
+          to="/contactUs"
+        >
+          Contact us here!
+        </Button>
       </Container>
       {/* End hero unit */}
 
