@@ -14,6 +14,8 @@ import Badge from "@material-ui/core/Badge";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChatIcon from "@material-ui/icons/Chat";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+
 // Redux
 import { connect } from "react-redux";
 import { markNotificationsRead } from "../../redux/actions/userActions";
@@ -73,8 +75,10 @@ class Notifications extends Component {
           const icon =
             not.type === "like" ? (
               <FavoriteIcon color={iconColor} style={{ marginRight: 10 }} />
-            ) : (
+            ) : not.type === "comment" ? (
               <ChatIcon color={iconColor} style={{ marginRight: 10 }} />
+            ) : (
+              <ShoppingCartIcon color={iconColor} style={{ marginRight: 10 }} />
             );
 
           return (

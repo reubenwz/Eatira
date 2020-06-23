@@ -12,6 +12,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 // Icons
 import CloseIcon from "@material-ui/icons/Close";
@@ -122,13 +123,14 @@ class OrderButton extends Component {
     );
     return (
       <Fragment>
-        <MyButton
+        <Button
           onClick={this.handleOpen}
+          disabled={this.props.quantity <= 0}
           tip="Order"
           tipClassName={classes.expandButton}
         >
           <AddShoppingCartIcon color="primary" />
-        </MyButton>
+        </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -158,6 +160,7 @@ OrderButton.propTypes = {
   userHandle: PropTypes.string.isRequired,
   post: PropTypes.object.isRequired,
   UI: PropTypes.object.isRequired,
+  quantity: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

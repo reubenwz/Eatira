@@ -30,6 +30,7 @@ class OrderForm extends Component {
     paymentMethod: "",
     additionalInfo: "",
     errors: {},
+    postId: this.props.postId,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -60,7 +61,7 @@ class OrderForm extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.submitOrder({
+    this.props.submitOrder(this.props.postId, {
       name: this.state.name,
       address: this.state.address,
       email: this.state.email,
@@ -173,6 +174,7 @@ OrderForm.propTypes = {
   UI: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   authenticated: PropTypes.bool.isRequired,
+  postId: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

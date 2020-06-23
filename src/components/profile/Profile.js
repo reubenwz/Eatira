@@ -130,29 +130,6 @@ class Profile extends Component {
         </Paper>
       ) : (
         <Redirect to="/" />
-        // <Paper className={classes.paper}>
-        //   <Typography variant="body2" align="center">
-        //     No profile found, please login again
-        //   </Typography>
-        //   <div className={classes.buttons}>
-        //     <Button
-        //       variant="contained"
-        //       color="primary"
-        //       component={Link}
-        //       to="/login"
-        //     >
-        //       Login
-        //     </Button>
-        //     <Button
-        //       variant="contained"
-        //       color="secondary"
-        //       component={Link}
-        //       to="/signup"
-        //     >
-        //       Sign Up
-        //     </Button>
-        //   </div>
-        // </Paper>
       )
     ) : (
       <ProfileSkeleton />

@@ -210,14 +210,14 @@ export const getUserData = (userHandle) => (dispatch) => {
 };
 
 // Submit order
-export const submitOrder = (newOrder) => (dispatch) => {
+export const submitOrder = (postId, newOrder) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("/submitorder", newOrder)
+    .post(`/post/${postId}/submitorder`, newOrder)
     .then((res) => {
       dispatch({
         type: SUBMIT_ORDER,
-        payload: res.data.orders,
+        payload: res.data,
       });
       dispatch(clearErrors());
     })
@@ -240,7 +240,6 @@ export const getOrderData = (userHandle) => (dispatch) => {
         payload: res.data.orders,
       });
     })
-    .then(console.log("getorderdata in dataactions executed"))
     .catch(() => {
       dispatch({
         type: SUBMIT_ORDER,

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Order from "../components/post/Order";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { getOrderData } from "../redux/actions/dataActions";
@@ -12,13 +11,12 @@ class order extends Component {
     orderIdParam: null,
   };
   componentDidMount() {
-    const handle = "Yuki";
+    const handle = "Reuben";
     const orderId = this.props.match.params.orderId;
 
     if (orderId) this.setState({ orderIdParam: orderId });
 
     this.props.getOrderData(handle);
-    console.log("handle: " + handle);
   }
   render() {
     const { orders } = this.props.data;

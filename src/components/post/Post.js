@@ -19,7 +19,6 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 
 //Redux
 import { connect } from "react-redux";
@@ -187,7 +186,8 @@ class Post extends Component {
                   quantity={quantity}
                   openDialog={this.props.openDialog}
                 />
-              </span><br/>
+              </span>
+              <br />
             </CardActionArea>
 
             <CardActionArea>
@@ -197,7 +197,7 @@ class Post extends Component {
               </span>
               <br />
               <span className={classes.likeCount}>{likeCount} Likes</span>
-                
+
               <span className={classes.PostDialog}>
                 <PostDialog
                   postId={postId}
@@ -208,8 +208,8 @@ class Post extends Component {
               <span className={classes.commentCount}>
                 {commentCount} comments
               </span>
-            </CardActionArea><br/>
-            
+            </CardActionArea>
+            <br />
           </CardContent>
         </CardActionArea>
       </Card>
