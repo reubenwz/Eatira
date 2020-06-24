@@ -65,13 +65,13 @@ class PostTextForm extends Component {
 
     const postTextFormMarkup = authenticated ? (
       <Fragment>
-        <MyButton
+        <Button
           tip="Add / Edit Caption"
           onClick={this.handleOpen}
           btnClassName={classes.postTextButton}
         >
           <AddIcon color="primary" />
-        </MyButton>
+        </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}

@@ -81,7 +81,7 @@ class OrderForm extends Component {
           <TextField
             name="name"
             type="text"
-            label="Your name"
+            label="Recipient?"
             error={errors.comment ? true : false}
             helperText={errors.comment}
             value={this.state.name}

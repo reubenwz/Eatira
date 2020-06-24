@@ -65,13 +65,13 @@ class EditQuantity extends Component {
 
     const quantityFormMarkup = authenticated ? (
       <Fragment>
-        <MyButton
+        <Button
           tip="Edit Quantity"
           onClick={this.handleOpen}
           btnClassName={classes.editQuantityButton}
         >
           <EditIcon color="primary" />
-        </MyButton>
+        </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}

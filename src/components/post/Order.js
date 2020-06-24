@@ -62,23 +62,36 @@ class Order extends Component {
     dayjs.extend(relativeTime);
     const {
       classes,
-      order: { name, address, email, contact, paymentMethod, additionalInfo },
+      order: {
+        name,
+        address,
+        email,
+        contact,
+        paymentMethod,
+        additionalInfo,
+        createdAt,
+        userHandle,
+        postId,
+      },
     } = this.props;
 
     return (
       <Card className={classes.card}>
         <CardActionArea>
           <CardContent>
-            <Typography variant="body1">Name: {name}</Typography>
+            <Typography variant="body1">PostId: {postId}</Typography>
+            <Typography variant="body1">Recipient: {name}</Typography>
             <Typography variant="body1">Address: {address}</Typography>
             <Typography variant="body1">Email: {email}</Typography>
             <Typography variant="body1">Contact: {contact}</Typography>
             <Typography variant="body1">
-              Payment Method:{paymentMethod}
+              Payment Method: {paymentMethod}
             </Typography>
             <Typography variant="body1">
               Additional Info: {additionalInfo}
             </Typography>
+            <Typography variant="body1">Ordered at: {createdAt}</Typography>
+            <Typography variant="body1">Username: {userHandle}</Typography>
           </CardContent>
         </CardActionArea>
       </Card>

@@ -84,6 +84,11 @@ const styles = {
     top: "50%",
     bottom: "30%",
   },
+  PostText: {
+    left: "20%",
+    top: "50%",
+    bottom: "30%",
+  },
 };
 
 class Post extends Component {
@@ -175,9 +180,6 @@ class Post extends Component {
                 {quantity} left
               </Typography>
             </span>
-            {postTextButton}
-            <br />
-            {editQuantityButton}
 
             <CardActionArea>
               <span className={classes.OrderButton}>
@@ -187,7 +189,10 @@ class Post extends Component {
                   openDialog={this.props.openDialog}
                 />
               </span>
-              <br />
+
+              <span className={classes.PostText}>{postTextButton}</span>
+
+              <span className={classes.EditQuantity}>{editQuantityButton}</span>
             </CardActionArea>
 
             <CardActionArea>
