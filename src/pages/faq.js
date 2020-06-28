@@ -131,7 +131,7 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>We do not charge GST for our products.</Typography>
+            <Typography>The bakers do not charge GST for their products.</Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
@@ -146,7 +146,7 @@ export default function FAQ() {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              All payments have to be made upon ordering. We accept cash or
+              All payments have to be made upon ordering. The bakers accept cash or
               credit/debit card payments through PayLAH and PayNow.
             </Typography>
           </ExpansionPanelDetails>

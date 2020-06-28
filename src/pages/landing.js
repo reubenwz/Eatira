@@ -167,7 +167,7 @@ export default function Landing() {
             <Grid item xs={12} sm={6} md={4}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="E-Payment"
+                  title="Online Order"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
