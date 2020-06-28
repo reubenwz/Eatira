@@ -69,6 +69,7 @@ class OrderForm extends Component {
       paymentMethod: this.state.paymentMethod,
       additionalInfo: this.state.additionalInfo,
     });
+    alert("Your order has been sent to the seller!");
   };
 
   render() {

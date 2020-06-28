@@ -11,12 +11,13 @@ class order extends Component {
     orderIdParam: null,
   };
   componentDidMount() {
-    const handle = "Reuben";
+    const handle = "Daniel";
     const orderId = this.props.match.params.orderId;
 
     if (orderId) this.setState({ orderIdParam: orderId });
 
     this.props.getOrderData(handle);
+    console.log(this.props.handle);
   }
   render() {
     const { orders } = this.props.data;
