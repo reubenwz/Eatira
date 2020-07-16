@@ -115,15 +115,7 @@ export default function (state = initialState, action) {
         ...state,
       };
     case SUBMIT_ORDER:
-      let submitOrderIndex = state.posts.findIndex(
-        (post) => post.postId === action.payload.postId
-      );
-      state.posts[submitOrderIndex] = action.payload;
-      if (state.post.postId === action.payload.postId) {
-        let temporaryComments = state.post.comments;
-        state.post = action.payload;
-        state.post.comments = temporaryComments;
-      }
+      newFunction();
       return {
         ...state,
         orders: action.payload,
@@ -210,5 +202,17 @@ export default function (state = initialState, action) {
       }
     default:
       return state;
+  }
+
+  function newFunction() {
+    let submitOrderIndex = state.posts.findIndex(
+      (post) => post.postId === action.payload.postId
+    );
+    state.posts[submitOrderIndex] = action.payload;
+    if (state.post.postId === action.payload.postId) {
+      let temporaryComments = state.post.comments;
+      state.post = action.payload;
+      state.post.comments = temporaryComments;
+    }
   }
 }

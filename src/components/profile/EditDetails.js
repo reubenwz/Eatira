@@ -126,8 +126,8 @@ class EditDetails extends Component {
               <TextField
                 name="dietaryPreferences"
                 type="text"
-                label="DietaryPreferences"
-                placeholder="What dietary preferences do you have? E.g. Vegan, Halal, ..."
+                label="Speciality / Favourite Food"
+                placeholder="What are you selling / What is your favourite food?"
                 className={classes.textField}
                 value={this.state.dietaryPreferences}
                 onChange={this.handleChange}

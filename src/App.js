@@ -66,7 +66,7 @@ class App extends Component {
                 <AuthRoute exact path="/login" component={login} />
                 <AuthRoute exact path="/signup" component={signup} />
                 <Route exact path="/users/:handle" component={user} />
-                <Route exact path="/order" component={order} />
+                <Route exact path="/order/:handle" component={order} />
                 <Route
                   exact
                   path="/users/:handle/post/:postId"

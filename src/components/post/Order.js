@@ -71,7 +71,6 @@ class Order extends Component {
         additionalInfo,
         createdAt,
         userHandle,
-        postId,
       },
     } = this.props;
 
@@ -79,7 +78,6 @@ class Order extends Component {
       <Card className={classes.card}>
         <CardActionArea>
           <CardContent>
-            <Typography variant="body1">PostId: {postId}</Typography>
             <Typography variant="body1">Recipient: {name}</Typography>
             <Typography variant="body1">Address: {address}</Typography>
             <Typography variant="body1">Email: {email}</Typography>

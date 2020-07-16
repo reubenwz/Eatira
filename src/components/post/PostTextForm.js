@@ -78,7 +78,7 @@ class PostTextForm extends Component {
           //   fullWidth
           //   maxWidth="sm"
         >
-          <DialogTitle>Caption</DialogTitle>
+          <DialogTitle>Details</DialogTitle>
           <DialogActions>
             <MyButton
               tip="Close"
@@ -91,7 +91,7 @@ class PostTextForm extends Component {
               <TextField
                 name="text"
                 type="text"
-                label="Write a caption..."
+                label="Product details"
                 multiline="3"
                 error={errors.comment ? true : false}
                 helperText={errors.comment}

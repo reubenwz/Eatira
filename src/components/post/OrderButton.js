@@ -129,7 +129,9 @@ class OrderButton extends Component {
           tip="Order"
           tipClassName={classes.expandButton}
         >
-          <AddShoppingCartIcon color="primary" />
+          <AddShoppingCartIcon
+            color={this.props.quantity <= 0 ? "grey" : "primary"}
+          />
         </Button>
         <Dialog
           open={this.state.open}

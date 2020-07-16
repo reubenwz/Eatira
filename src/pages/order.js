@@ -11,7 +11,7 @@ class order extends Component {
     orderIdParam: null,
   };
   componentDidMount() {
-    const handle = "Daniel";
+    const handle = this.props.match.params.handle;
     const orderId = this.props.match.params.orderId;
 
     if (orderId) this.setState({ orderIdParam: orderId });
@@ -22,7 +22,13 @@ class order extends Component {
   render() {
     const { orders } = this.props.data;
     const { orderIdParam } = this.state;
-
+    const {
+      user: {
+        authenticated,
+        credentials: { handle },
+      },
+    } = this.props;
+    this.props.getOrderData(handle);
     const ordersMarkup =
       orders === null ? (
         <p>No orders yet...</p>

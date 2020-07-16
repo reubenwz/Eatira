@@ -93,7 +93,7 @@ class OrderForm extends Component {
           <TextField
             name="address"
             type="text"
-            label="Your address"
+            label="Delivery address"
             error={errors.comment ? true : false}
             helperText={errors.comment}
             value={this.state.address}

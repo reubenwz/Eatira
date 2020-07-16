@@ -78,7 +78,7 @@ class EditQuantity extends Component {
           //   fullWidth
           //   maxWidth="sm"
         >
-          <DialogTitle>Caption</DialogTitle>
+          <DialogTitle>Quantity</DialogTitle>
           <DialogActions>
             <MyButton
               tip="Close"
