@@ -78,6 +78,8 @@ class Order extends Component {
       <Card className={classes.card}>
         <CardActionArea>
           <CardContent>
+            <Typography variant="h5">{additionalInfo}</Typography>
+            <br />
             <Typography variant="body1">Recipient: {name}</Typography>
             <Typography variant="body1">Address: {address}</Typography>
             <Typography variant="body1">Email: {email}</Typography>
@@ -85,11 +87,11 @@ class Order extends Component {
             <Typography variant="body1">
               Payment Method: {paymentMethod}
             </Typography>
+
+            <br />
             <Typography variant="body1">
-              Additional Info: {additionalInfo}
+              Ordered at: {dayjs(createdAt).format("MMMM D, YYYY h:mm A")}
             </Typography>
-            <Typography variant="body1">Ordered at: {createdAt}</Typography>
-            <Typography variant="body1">Username: {userHandle}</Typography>
           </CardContent>
         </CardActionArea>
       </Card>

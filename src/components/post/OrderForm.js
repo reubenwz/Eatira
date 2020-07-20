@@ -80,6 +80,18 @@ class OrderForm extends Component {
       <Grid item sm={12} style={{ textAlign: "center" }}>
         <form onSubmit={this.handleSubmit}>
           <TextField
+            name="additionalInfo"
+            type="text"
+            label="Order Title"
+            error={errors.comment ? true : false}
+            helperText={errors.comment}
+            value={this.state.additionalInfo}
+            onChange={this.handleChange}
+            fullWidth
+            className={classes.textField}
+          />
+          <br />
+          <TextField
             name="name"
             type="text"
             label="Recipient?"
@@ -142,18 +154,7 @@ class OrderForm extends Component {
               <MenuItem value={"Cash On Delivery"}>Cash On Delivery</MenuItem>
             </Select>
           </FormControl>
-          <br />
-          <TextField
-            name="additionalInfo"
-            type="text"
-            label="Any additional info needed for seller to know?"
-            error={errors.comment ? true : false}
-            helperText={errors.comment}
-            value={this.state.additionalInfo}
-            onChange={this.handleChange}
-            fullWidth
-            className={classes.textField}
-          />
+
           <Button
             type="submit"
             variant="contained"
