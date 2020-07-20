@@ -22,13 +22,7 @@ class order extends Component {
   render() {
     const { orders } = this.props.data;
     const { orderIdParam } = this.state;
-    const {
-      user: {
-        authenticated,
-        credentials: { handle },
-      },
-    } = this.props;
-    this.props.getOrderData(handle);
+
     const ordersMarkup =
       orders === null ? (
         <p>No orders yet...</p>
