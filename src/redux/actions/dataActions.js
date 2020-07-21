@@ -16,6 +16,7 @@ import {
   POST_TEXT,
   EDIT_QUANTITY,
   SUBMIT_ORDER,
+  SALE,
 } from "../types";
 import axios from "axios";
 
@@ -243,6 +244,25 @@ export const getOrderData = (userHandle) => (dispatch) => {
     .catch(() => {
       dispatch({
         type: SUBMIT_ORDER,
+        payload: null,
+      });
+    });
+};
+
+//Get user sales
+export const getSaleData = (userHandle) => (dispatch) => {
+  dispatch({ type: LOADING_DATA });
+  axios
+    .get(`/sale/${userHandle}`)
+    .then((res) => {
+      dispatch({
+        type: SALE,
+        payload: res.data.sales,
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: SALE,
         payload: null,
       });
     });

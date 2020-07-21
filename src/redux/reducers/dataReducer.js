@@ -13,6 +13,7 @@ import {
   EDIT_QUANTITY,
   SET_CARTITEM,
   SUBMIT_ORDER,
+  SALE,
 } from "../types";
 
 import {
@@ -27,6 +28,7 @@ const initialState = {
   cartitem: [],
   post: {},
   orders: [],
+  sales: [],
   loading: false,
 };
 
@@ -115,10 +117,16 @@ export default function (state = initialState, action) {
         ...state,
       };
     case SUBMIT_ORDER:
-      newFunction();
+      // newFunction();
       return {
         ...state,
         orders: action.payload,
+        loading: false,
+      };
+    case SALE:
+      return {
+        ...state,
+        sales: action.payload,
         loading: false,
       };
     case EDIT_QUANTITY:
@@ -204,15 +212,15 @@ export default function (state = initialState, action) {
       return state;
   }
 
-  function newFunction() {
-    let submitOrderIndex = state.posts.findIndex(
-      (post) => post.postId === action.payload.postId
-    );
-    state.posts[submitOrderIndex] = action.payload;
-    if (state.post.postId === action.payload.postId) {
-      let temporaryComments = state.post.comments;
-      state.post = action.payload;
-      state.post.comments = temporaryComments;
-    }
-  }
+  // function newFunction() {
+  //   let submitOrderIndex = state.posts.findIndex(
+  //     (post) => post.postId === action.payload.postId
+  //   );
+  //   state.posts[submitOrderIndex] = action.payload;
+  //   if (state.post.postId === action.payload.postId) {
+  //     let temporaryComments = state.post.comments;
+  //     state.post = action.payload;
+  //     state.post.comments = temporaryComments;
+  //   }
+  // }
 }

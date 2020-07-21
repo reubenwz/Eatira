@@ -17,6 +17,7 @@ const initialState = {
   likes: [],
   notifications: [],
   orders: [],
+  sales: [],
 };
 
 export default function (state = initialState, action) {

@@ -25,3 +25,4 @@ export const POST_TEXT = "POST_TEXT";
 export const EDIT_QUANTITY = "EDIT_QUANTITY";
 export const SET_CARTITEM = "SET_CARTITEM";
 export const SUBMIT_ORDER = "SUBMIT_ORDER";
+export const SALE = "SALE";

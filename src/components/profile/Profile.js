@@ -93,6 +93,15 @@ class Profile extends Component {
                 My Orders
               </MuiLink>
               <hr />
+              <MuiLink
+                component={Link}
+                to={`/sale/${handle}`}
+                color="primary"
+                variant="h5"
+              >
+                My Sales
+              </MuiLink>
+              <hr />
               {bio && <Typography variant="body2">{bio}</Typography>}
               <hr />
               {location && (

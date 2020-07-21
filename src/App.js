@@ -24,6 +24,7 @@ import features from "./pages/features";
 import faq from "./pages/faq";
 import forgotpassword from "./pages/forgotpassword";
 import order from "./pages/order";
+import sale from "./pages/sale";
 import contactUs from "./pages/contactUs";
 
 import axios from "axios";
@@ -67,6 +68,7 @@ class App extends Component {
                 <AuthRoute exact path="/signup" component={signup} />
                 <Route exact path="/users/:handle" component={user} />
                 <Route exact path="/order/:handle" component={order} />
+                <Route exact path="/sale/:handle" component={sale} />
                 <Route
                   exact
                   path="/users/:handle/post/:postId"
