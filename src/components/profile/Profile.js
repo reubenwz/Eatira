@@ -90,9 +90,9 @@ class Profile extends Component {
                 color="primary"
                 variant="h5"
               >
-                My Orders
+                My Cart
               </MuiLink>
-              <hr />
+             <br/>
               <MuiLink
                 component={Link}
                 to={`/sale/${handle}`}

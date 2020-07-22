@@ -183,7 +183,7 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                      Double check the items you have ordered.
+                      Fill up the order form for the item you chose.
                     </Typography>
                   </div>
                 </CardContent>
@@ -218,7 +218,7 @@ export default function Features() {
             <Grid item xs={6} sm={3} md={3}>
               <Card width="30%" height="30%">
                 <CardHeader
-                  title="Confirm Order"
+                  title="Completed"
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
                   className={classes.cardHeader}
@@ -239,8 +239,7 @@ export default function Features() {
                       component="p"
                       align="center"
                     >
-                      You should receive an e-mail confirming your order within
-                      a couple of hours.
+                      Your orders will appear in your cart.
                     </Typography>
                   </div>
                 </CardContent>
