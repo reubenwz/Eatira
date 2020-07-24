@@ -1,68 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# NUS Orbital 2020 - Eatira ![alt text](https://i.imgur.com/hy5nHIpt.png) 
+_Last Updated on July 24, 2020_
 
-## Available Scripts
+### Eatira is one of a kind online bake sales platform for users to purchase baked goods directly from home-based F&B businesses.
+![alt text](https://i.imgur.com/NEnCQyT.jpg) 
 
-In the project directory, you can run:
+### Purpose
+This Eatira Web Application Project is meant for Computing students at the National University of Singapore (NUS) that are undertaking **CP2106 - Independent Software Development Project (Orbital)** in Summer 2020. Eatira will enable users to scroll through the home page as a news feed, where shop owners will post their homemade baked goods to sell on our platform that equips with **e-commerce like functionalities.**
 
-### `npm start`
+### Features
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| No.           | Features                                       | Function  |
+|:-------------:|:---------------------------------------------: |:---------:|
+| 1             | UI - Landing Page                              | The first page that the user lands on and register as Eatira’s membership. Easy to use and navigate through About Us, FAQ, Contact Us and Features pages.       |
+| 2             | News Feed                                      | Displays all the consolidated baked goods available from all the shop owners with price listed, quantity availability and an order button function.       |
+| 3             | Order Feature                                  | Users can order from the selected post through the order icon button and fill up the order form.      |
+| 4             | Like and Comment                               | Users can also like and comment on the post.      |
+| 5             | Post                                           | Shop owners can set how many quantities of food they can sell (as many as they like to sell). Users will not be able to order if quantity is 0.      |
+| 6             | Users' Side Profile Page                       | Users will be able to update their profile display picture and details       |
+| 7             | My Cart                                        | Consolidate the orders that the user picks and review the order before proceeding for payment and delivery. |
+| 8             | My Sales                                       | Orders made will also be sent as a duplicate copy to the seller and appear in the form of notification and under ‘My Sales’.|
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Tech Specs
+1. React.js
+2. Firebase
+3. Express.js
+4. Redux
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### System Architecture Diagram
+![alt text](https://i.imgur.com/CAiA2e0.png) 
