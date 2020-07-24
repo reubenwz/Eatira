@@ -20,6 +20,8 @@ import CalendarToday from "@material-ui/icons/CalendarToday";
 import FastfoodRoundedIcon from "@material-ui/icons/FastfoodRounded";
 import EditIcon from "@material-ui/icons/Edit";
 import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 
 //Redux
 import { connect } from "react-redux";
@@ -84,23 +86,16 @@ class Profile extends Component {
             </div>
             <hr />
             <div className="profile-details">
-              <MuiLink
-                component={Link}
-                to={`/order/${handle}`}
-                color="primary"
-                variant="h5"
-              >
-                My Cart
-              </MuiLink>
-             <br/>
-              <MuiLink
-                component={Link}
-                to={`/sale/${handle}`}
-                color="primary"
-                variant="h5"
-              >
-                My Sales
-              </MuiLink>
+              <Link to={`/order/${handle}`}>
+                <MyButton tip="My Cart">
+                  <ShoppingCartIcon color="secondary" />
+                </MyButton>
+              </Link>
+              <Link to={`/sale/${handle}`}>
+                <MyButton tip="My Sales">
+                  <MonetizationOnIcon color="secondary" />
+                </MyButton>
+              </Link>
               <hr />
               {bio && <Typography variant="body2">{bio}</Typography>}
               <hr />
