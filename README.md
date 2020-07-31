@@ -2,6 +2,8 @@
 _Last Updated on July 24, 2020_
 
 ### Eatira is one of a kind online bake sales platform for users to purchase baked goods directly from home-based F&B businesses.
+Visit our deployed app over here: https://eatira2.web.app/
+
 ![alt text](https://i.imgur.com/NEnCQyT.jpg) 
 
 ### Purpose
